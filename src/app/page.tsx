@@ -1,103 +1,61 @@
-import Image from "next/image";
+import Link from "next/link";
+import { getSummary, getModels, readJson } from "@/lib/data";
+import { Container, Stat, Btn, KindTag, fmt } from "@/components/ui";
+import HeroMap from "@/components/HeroMap";
 
 export default function Home() {
+  const s = getSummary(), m = getModels();
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const idx = readJson<any[]>("towns_index.json").map((t) => ({ id: t.id, name: t.name, county: t.county, lat: t.lat, lon: t.lon, firstServed: t.firstServed }));
+  const b1 = s.headline.b1_served1911, dm = s.headline.diff_mean_g40_20;
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <>
+      <section className="bg-coal text-cream">
+        <Container className="py-10 sm:py-16 grid lg:grid-cols-2 gap-10 items-center">
+          <div>
+            <p className="text-copper-2 uppercase tracking-[0.2em] text-xs font-medium mb-4">Computational history · Texas, 1861–2020</p>
+            <h1 className="text-4xl sm:text-6xl font-semibold leading-[1.05]">Did railroads decide which Texas towns thrived?</h1>
+            <p className="mt-5 text-lg text-cream/80 leading-relaxed max-w-xl">RailEffect links Jeremy Atack’s historical railroad GIS to census population tables digitised and verified for this project, then tests whether early rail access predicts which towns grew, shrank or persisted.</p>
+            <div className="mt-7 flex flex-wrap gap-3">
+              <Btn href="/findings">Explore the findings</Btn>
+              <Btn href="/explorer" variant="ghost">Open the Railroad Explorer</Btn>
+            </div>
+          </div>
+          <div>
+            <HeroMap towns={idx} years={s.benchmark_years} trackKm={s.texas_track_km_by_benchmark} />
+          </div>
+        </Container>
+      </section>
+      <Container className="py-10">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6" data-testid="home-stats">
+          <Stat label="Texas towns located and analysed" value={fmt(s.towns_analyzed)} />
+          <Stat label="Historical track segments (Atack)" value={fmt(s.rail_segments_texas)} />
+          <Stat label="Network snapshots" value={`${s.benchmark_years.length}`} note={`${s.benchmark_years[0]}–${s.benchmark_years[s.benchmark_years.length - 1]} + 2020`} />
+          <Stat label="Verified or consensus population values" value={fmt(s.population_observations_ab)} />
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+      </Container>
+      <Container className="pb-12 grid lg:grid-cols-3 gap-6">
+        <div className="lg:col-span-2 bg-white/70 border border-rule rounded-lg p-6">
+          <p className="text-[11px] uppercase tracking-[0.14em] text-copper font-medium">Current answer</p>
+          <h2 className="text-2xl font-semibold mt-1">Rail towns grew faster — but rail access alone does not explain it</h2>
+          <div className="mt-4 space-y-4 text-[15px] leading-relaxed">
+            <p><KindTag kind="Computed result" /> Towns with track within 2 km by 1911 grew {dm.served_minus_not.toFixed(2)} log points more from 1940 to 2020 than towns without (95% CI {dm.ci[0].toFixed(2)} to {dm.ci[1].toFixed(2)}).</p>
+            <p><KindTag kind="Computed result" /> After accounting for 1940 size and location, the estimate shrinks to {b1.coef.toFixed(2)} (95% CI {b1.ci_low.toFixed(2)} to {b1.ci_high.toFixed(2)}), consistent with no independent association, across {m.robustness.length} robustness checks.</p>
+            <p><KindTag kind="Uncertain inference" /> Proximity to large cities and to the later Interstate network is more strongly associated with growth. These are associations in a sample of towns that had already incorporated; they do not establish what railroads caused.</p>
+          </div>
+          <Link href="/lab" className="inline-block mt-5 text-copper underline">See the models in the Research Lab →</Link>
+        </div>
+        <div className="bg-coal text-cream rounded-lg p-6">
+          <p className="text-[11px] uppercase tracking-[0.14em] text-copper-2 font-medium">How to use this site</p>
+          <ul className="mt-3 space-y-3 text-sm">
+            <li><Link className="underline" href="/explorer">Railroad Explorer</Link> — step through documented network snapshots.</li>
+            <li><Link className="underline" href="/towns">Towns</Link> — each town’s census history with page-level citations.</li>
+            <li><Link className="underline" href="/compare?a=denison-grayson&b=sherman-grayson">Compare</Link> — two towns side by side.</li>
+            <li><Link className="underline" href="/case-studies">Case studies</Link> — paired towns chosen by rule.</li>
+            <li><Link className="underline" href="/methodology">Methodology</Link> and <Link className="underline" href="/data">Data</Link> — reproduce or correct the work.</li>
+          </ul>
+        </div>
+      </Container>
+    </>
   );
 }

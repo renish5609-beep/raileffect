@@ -1,0 +1,49 @@
+sample_id,quality,id,year,value,table,pdf_page,panel,y500,name_ocr
+A00,A,peacock-stonewall,1950,165,1950_T7,31,0,2644,Peacock
+A01,A,meadow-terry,1960,484,1960_T8,39,1,3728,Meadow
+A02,A,tenaha-shelby,1960,1097,1960_T8,41,0,4066,Tenaha ‘
+A03,A,copperas-cove-coryell,1940,356,1940_T5,47,0,4255,Copperas Cove
+A04,A,tyler-smith,1940,28279,1940_T5,49,2,3628,Tyler
+A05,A,garrison-nacogdoches,1950,699,1950_T7,30,0,1722,Garrison
+A06,A,mount-enterprise-rusk,1940,622,1940_T5,48,0,4667,Mount Enterprise
+A07,A,buckingham-dallas,1960,239,1960_T8,37,1,2206,Buckingham*
+A08,A,albany-shackelford,1940,2230,1950_T7,29,0,1372,Albany
+A09,A,sudan-lamb,1940,974,1940_T5,48,2,4367,Sudan
+A10,A,santa-rosa-cameron,1960,1572,1960_T8,40,1,5024,} Santa Roa
+A11,A,san-saba-san-saba,1960,2728,1960_T8,40,1,4835,San Saba
+A12,A,douglassville-cass,1960,172,1960_T8,38,0,3260,2 Douglasaville
+A13,A,spearman-hansford,1950,1852,1950_T7,31,1,4931,Spearman
+A14,A,lawn-taylor,1950,311,1950_T7,30,1,4300,Lawn
+A15,A,bardwell-ellis,1950,229,1950_T7,29,0,3248,Bardwell -
+A16,A,brownfield-terry,1940,4009,1940_T5,47,0,1466,Brownfield*
+A17,A,eagle-lake-colorado,1940,2124,1940_T5,47,1,1964,Eagle Lake
+A18,A,kennedale-tarrant,1950,1046,1950_T7,30,1,2930,Kennedale
+A19,A,san-perlita-willacy,1960,348,1960_T8,40,1,4793,San Perlita
+A20,A,electra-wichita,1940,5588,1940_T5,47,1,2505,Flectra*
+A21,A,estelline-hall,1950,464,1950_T7,29,2,4286,| Estelline
+A22,A,roby-fisher,1960,913,1960_T8,40,1,2932,| Roby
+A23,A,rule-haskell,1940,1195,1940_T5,48,2,1837,Rule
+B24,B,shiner-lavaca,1970,2102,1970_T6,16,0,4129,Shiner town Lavaca
+B25,B,scottsville-harrison,1970,259,1970_T6,16,0,3206,Scottsville town Harrison
+B26,B,kerrville-kerr,1970,12672,1970_T6,14,0,1368,"Kerrville city Kerr,"
+B27,B,pottsboro-grayson,1910,313,1910_T2,28,0,3604,Pottsboro town
+B28,B,boyd-wise,1970,695,1970_T6,11,1,2485,Boyd town Wise
+B29,B,edna-jackson,1970,5332,1970_T6,12,1,2775,Edna city : Jackson
+B30,B,terrell-kaufman,1930,8795,1940_T5,48,2,5110,Terrell*
+B31,B,ladonia-fannin,1970,757,1970_T6,14,0,2280,Ladonia town Fannin
+B32,B,wylie-collin,1900,713,1910_T2,28,1,4359,Wylie town
+B33,B,whitewright-grayson,1940,1537,1960_T8,41,1,3566,Whitewright
+B34,B,highlands-harris,1970,3462,1970_T6,13,1,1912,Highlands (U) Harris
+B35,B,cooper-delta,1960,2213,1970_T6,12,0,3112,Cooper city Delta
+B36,B,lufkin-angelina,1930,7311,1940_T5,48,0,2174,Lufkin*
+B37,B,carbon-eastland,1930,463,1940_T5,47,0,2463,Carbon
+B38,B,wills-point-van-zandt,1890,1025,1910_T2,28,1,4058,Wills Point city |
+B39,B,atlanta-cass,1900,1301,1910_T2,27,0,1284,Atlanta town
+B40,B,allen-collin,1960,659,1970_T6,11,0,1611,Allen city Collin
+B41,B,livingston-polk,1970,3925,1970_T6,14,0,4780,Livingston town ’ Polk
+B42,B,kerrville-kerr,1900,1423,1910_T2,27,1,4135,} Kerrville town
+B43,B,baird-callahan,1900,1502,1910_T2,27,0,1369,Baird city
+B44,B,oglesby-coryell,1970,440,1970_T6,15,0,3028,Oglesby city Coryell
+B45,B,troup-smith,1900,724,1910_T2,28,1,2790,Troupe town
+B46,B,dodd-city-fannin,1960,239,1970_T6,12,1,1572,Dodd City town Fannin
+B47,B,lubbock-lubbock,1970,149101,1970_T6,14,1,1364,Lubbock city Lubbock

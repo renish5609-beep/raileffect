@@ -1,0 +1,20 @@
+{
+ "A": {
+  "checked": 24,
+  "correct": 24,
+  "accuracy": 1.0,
+  "ci95_clopper_pearson": [
+   0.858,
+   1.0
+  ]
+ },
+ "B": {
+  "checked": 23,
+  "correct": 22,
+  "accuracy": 0.9565,
+  "ci95_clopper_pearson": [
+   0.781,
+   0.999
+  ]
+ }
+}

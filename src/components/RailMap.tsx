@@ -69,16 +69,16 @@ export default function RailMap({ year, towns, selectedTownId, onTownClick, onSe
           map.addSource("modern", { type: "geojson", data: { type: "FeatureCollection", features: [] } });
           map.addLayer({ id: "modern-line", type: "line", source: "modern", layout: { visibility: "none" }, paint: { "line-color": "#4a5866", "line-width": 1.1, "line-opacity": 0.8 } });
           map.addSource("rail", { type: "geojson", data: "/data/rail_atack.geojson" });
-          map.addLayer({ id: "rail-future", type: "line", source: "rail", paint: { "line-color": "#b8ad99", "line-width": 0.6, "line-opacity": 0.35, "line-dasharray": [2, 2] } });
-          map.addLayer({ id: "rail-old", type: "line", source: "rail", paint: { "line-color": "#24211d", "line-width": ["interpolate", ["linear"], ["zoom"], 4, 1, 9, 2.4] } });
-          map.addLayer({ id: "rail-new", type: "line", source: "rail", paint: { "line-color": "#a85a32", "line-width": ["interpolate", ["linear"], ["zoom"], 4, 1.6, 9, 3.4] } });
+          map.addLayer({ id: "rail-future", type: "line", source: "rail", paint: { "line-color": "#9c907a", "line-width": 0.8, "line-opacity": 0.45, "line-dasharray": [2, 2] } });
+          map.addLayer({ id: "rail-old", type: "line", source: "rail", paint: { "line-color": "#24211d", "line-width": ["interpolate", ["linear"], ["zoom"], 4, 1.5, 9, 3] } });
+          map.addLayer({ id: "rail-new", type: "line", source: "rail", paint: { "line-color": "#a85a32", "line-width": ["interpolate", ["linear"], ["zoom"], 4, 2.4, 9, 4] } });
           map.addLayer({ id: "rail-hit", type: "line", source: "rail", paint: { "line-color": "#000", "line-width": 10, "line-opacity": 0 } });
           map.addSource("towns", { type: "geojson", data: { type: "FeatureCollection", features: [] } });
           map.addLayer({ id: "towns-pt", type: "circle", source: "towns", paint: {
-            "circle-radius": ["interpolate", ["linear"], ["zoom"], 4, ["case", ["==", ["get", "sel"], 1], 7, 2.6], 10, ["case", ["==", ["get", "sel"], 1], 11, 6]],
+            "circle-radius": ["interpolate", ["linear"], ["zoom"], 4, ["case", ["==", ["get", "sel"], 1], 7, 1.8], 10, ["case", ["==", ["get", "sel"], 1], 11, 6]],
             "circle-color": ["case", ["==", ["get", "sel"], 1], "#8f2b21", ["==", ["get", "served"], 1], "#f5f0e6", "#5b7262"],
             "circle-stroke-color": ["case", ["==", ["get", "sel"], 1], "#fff", "#24211d"],
-            "circle-stroke-width": ["case", ["==", ["get", "sel"], 1], 2, 1],
+            "circle-stroke-width": ["case", ["==", ["get", "sel"], 1], 2, 0.6],
           } });
           map.addLayer({ id: "towns-label", type: "symbol", source: "towns", minzoom: 7, layout: {
             "text-field": ["get", "name"], "text-size": 11, "text-offset": [0, 1.1], "text-anchor": "top", "text-optional": true,
@@ -152,7 +152,7 @@ export default function RailMap({ year, towns, selectedTownId, onTownClick, onSe
 
   return (
     <div className="relative w-full rounded-lg overflow-hidden border border-rule bg-sand" style={{ height }}>
-      <div ref={ref} className="absolute inset-0" data-testid="rail-map" data-ready={ready ? "1" : "0"} aria-label="Interactive map of historical Texas railroads and towns" role="region" />
+      <div ref={ref} className="absolute inset-0" style={{ position: "absolute", width: "100%", height: "100%" }} data-testid="rail-map" data-ready={ready ? "1" : "0"} aria-label="Interactive map of historical Texas railroads and towns" role="region" />
       {!ready && !error && (
         <div className="absolute inset-0 grid place-items-center text-muted text-sm" aria-live="polite">Loading map and railroad layers…</div>
       )}

@@ -15,3 +15,6 @@ playwright-report/
 data/raw/
 data/interim/*.csv
 !data/interim/.gitkeep
+# full-resolution Atack-derived geometry is not redistributed (rebuild with the pipeline)
+data/processed/rail_segments.parquet
+data/processed/rail_nodes_xy.npy

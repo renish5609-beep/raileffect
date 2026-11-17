@@ -59,3 +59,6 @@ a { text-underline-offset: 3px; }
 .maplibregl-popup-content { font-family: var(--font-sans); border-radius: 6px !important; padding: 10px 12px !important; }
 
 :focus-visible { outline: 2px solid var(--color-copper); outline-offset: 2px; }
+
+/* grid items must be allowed to shrink below their content width (tables/charts scroll inside) */
+.grid > * { min-width: 0; }

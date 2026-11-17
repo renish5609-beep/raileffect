@@ -160,6 +160,9 @@ def main():
                      "b1_served1911": [t for t in models["model_b"]["models"][0]["terms"] if t["term"] == "served1911"][0],
                      "panel_switchers": models["model_c"]["panel_1890_1910"]["n_switchers"]},
         "zones": d.zone.value_counts().to_dict(),
+        "validation": json.loads((METADATA / "validation_summary.json").read_text()),
+        "visual_verified": int(len(pd.read_csv(METADATA / "visual_verification.csv"))),
+        "hubs": json.loads((METADATA / "accessibility_summary.json").read_text())["hubs"],
         "growth_hist": hist(d, "g40_20"),
         "arrival_counts": d.first_served.value_counts().sort_index().rename(lambda x: str(int(x))).to_dict(),
     }

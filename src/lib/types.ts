@@ -30,20 +30,23 @@ export type Town = {
   arrival_interval: [number | null, number] | null;
   served_2020: boolean | null;
   metrics: {
-    hub_dist_km_1911: number | null;      // network km to the nearest 1900 city of 10,000+ (Atack 1911 network)
+    hub_net_km_1911: number | null;      // network km to the nearest 1910 city of 10,000+ (Atack 1911 network)
     betweenness_1911: number | null;
     node_degree_1911: number | null;
     main_component_1911: boolean | null;
-    hub_dist_km_1889: number | null;
+    hub_net_km_1889: number | null;
+    dist_interstate_km: number | null;
   };
   outcomes: {
-    growth_1910_1970: number | null;     // log points
-    growth_1910_2020: number | null;
-    growth_1890_1910: number | null;
+    growth_1940_1960: number | null;     // natural-log change, verified values only
+    growth_1940_2020: number | null;
+    growth_1960_2020: number | null;
     persisted_2020: boolean;             // matched to a 2020 census place
     peak_year: number | null;
     declined_from_peak_pct: number | null;
   };
+  zone: string;
+  era: string;
   flags: string[];
 };
 
