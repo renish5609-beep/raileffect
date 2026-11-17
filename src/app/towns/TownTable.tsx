@@ -31,7 +31,7 @@ export default function TownTable({ rows }: { rows: R[] }) {
   return (
     <div>
       <div className="ui flex flex-wrap gap-4 items-end mb-6">
-        <label className="text-sm">Search<input data-testid="towns-search" value={q} onChange={(e) => setQ(e.target.value)} placeholder="Town or county" className="block mt-1 border-2 border-rule focus:border-ink outline-none rounded-sm px-3 py-2 bg-white w-64 max-w-full" /></label>
+        <label className="text-sm">Search<input data-testid="towns-search" type="search" name="q" autoComplete="off" spellCheck={false} value={q} onChange={(e) => setQ(e.target.value)} placeholder="Town or county…" className="block mt-1 border-2 border-rule focus:border-ink rounded-sm px-3 py-2 bg-white w-64 max-w-full" /></label>
         <label className="text-sm">Region<select value={zone} onChange={(e) => setZone(e.target.value)} className="block mt-1 border-2 border-rule rounded-sm px-2 py-2 bg-white"><option value="">All</option><option>East</option><option>Central</option><option>West</option></select></label>
         <label className="text-sm">Rail access<select value={rail} onChange={(e) => setRail(e.target.value)} className="block mt-1 border-2 border-rule rounded-sm px-2 py-2 bg-white">
           <option value="">All</option><option value="served">Track ≤ 2 km by 1911</option><option value="unserved">No track ≤ 2 km by 1911</option><option value="lost">Track by 1911, none ≤ 2 km in 2020</option></select></label>

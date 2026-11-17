@@ -1,5 +1,6 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 import { Chart, COLORS } from "@/components/Chart";
 import { Card, KindTag, fmt } from "@/components/ui";
 
@@ -21,7 +22,11 @@ function Forest({ rows, label }: { rows: { name: string; coef: number; lo: numbe
 }
 
 export default function Lab({ m }: { m: any }) {
-  const [tab, setTab] = useState<"A" | "B" | "C" | "R">("A");
+  const sp = useSearchParams();
+  const router = useRouter();
+  const t0 = sp.get("model");
+  const [tab, setTab] = useState<"A" | "B" | "C" | "R">(t0 === "B" || t0 === "C" || t0 === "R" ? t0 : "A");
+  useEffect(() => { router.replace(`/lab?model=${tab}`, { scroll: false }); }, [tab, router]);
   const [outcome, setOutcome] = useState<"g40_20" | "g40_60">("g40_20");
   const [group, setGroup] = useState<"by_served1911" | "by_era">("by_served1911");
   const [model, setModel] = useState(0);

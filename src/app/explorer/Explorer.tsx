@@ -1,7 +1,8 @@
 "use client";
 import dynamic from "next/dynamic";
 import Link from "next/link";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 import type { MapTown } from "@/components/RailMap";
 import BenchmarkRail from "@/components/BenchmarkRail";
 
@@ -13,8 +14,18 @@ type Seg = { id?: string; y?: number; a?: number | null; rr?: string; km?: numbe
 const ATACK_DOC = "https://cdn.vanderbilt.edu/t2-my/my-prd/wp-content/uploads/sites/133/2021/02/Creating-Historical-Transportation-Shapefiles-RevisedFeb2021.pdf";
 
 export default function Explorer({ towns, years, trackKm, operators, segmentsTexas }: { towns: T[]; years: number[]; trackKm: Record<string, number>; operators: string[]; segmentsTexas: number }) {
-  const [year, setYear] = useState<number | "2020">(1881);
-  const [sel, setSel] = useState<string | null>(null);
+  const sp = useSearchParams();
+  const router = useRouter();
+  const initialYear = (() => { const y = sp.get("year"); if (y === "2020") return "2020" as const; const n = Number(y); return years.includes(n) ? n : 1881; })();
+  const [year, setYear] = useState<number | "2020">(initialYear);
+  const [sel, setSel] = useState<string | null>(sp.get("town"));
+  // keep the snapshot and selected town in the URL so any view can be linked or bookmarked
+  useEffect(() => {
+    const q = new URLSearchParams();
+    q.set("year", String(year));
+    if (sel) q.set("town", sel);
+    router.replace(`/explorer?${q}`, { scroll: false });
+  }, [year, sel, router]);
   const [seg, setSeg] = useState<Seg | null>(null);
   const [q, setQ] = useState("");
   const [op, setOp] = useState("");
@@ -51,8 +62,8 @@ export default function Explorer({ towns, years, trackKm, operators, segmentsTex
         <aside className="space-y-6 ui">
           <div className="border-t-2 border-ink pt-3">
             <label htmlFor="town-search" className="ui font-semibold">Find a town</label>
-            <input id="town-search" value={q} onChange={(e) => setQ(e.target.value)} placeholder="e.g. Denison"
-              className="mt-1 w-full border-2 border-rule focus:border-ink rounded-sm px-3 py-2 text-[1rem] bg-white outline-none" autoComplete="off" data-testid="town-search" />
+            <input id="town-search" type="search" name="town" autoComplete="off" spellCheck={false} value={q} onChange={(e) => setQ(e.target.value)} placeholder="Denison, Cisco, Abilene…"
+              className="mt-1 w-full border-2 border-rule focus:border-ink rounded-sm px-3 py-2 text-[1rem] bg-white" data-testid="town-search" />
             {matches.length > 0 && (
               <ul className="mt-1 divide-y divide-rule border-2 border-ink border-t-0 bg-white" role="listbox">
                 {matches.map((m) => (

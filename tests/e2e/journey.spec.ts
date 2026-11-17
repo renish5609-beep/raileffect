@@ -16,7 +16,7 @@ test("main research journey", async ({ page, context }) => {
 
   // 3. select a documented network year
   await page.getByTestId("year-1889").click();
-  await expect(page.getByTestId("year-1889")).toHaveAttribute("aria-pressed", "true");
+  await expect(page.getByTestId("year-1889")).toHaveAttribute("aria-checked", "true");
   await expect(page.getByText("recorded as operating by 1889")).toBeVisible();
 
   // 4. select a real town
@@ -93,4 +93,14 @@ test("no horizontal page overflow", async ({ page }) => {
     const wide = await page.evaluate(() => Array.from(document.querySelectorAll("main section, main figure")).filter((el) => el.getBoundingClientRect().right > window.innerWidth + 1).length);
     expect(wide, r).toBe(0);
   }
+});
+
+test("explorer and lab state is deep-linkable", async ({ page }) => {
+  await page.goto("/explorer?year=1889&town=denison-grayson");
+  await expect(page.getByTestId("year-1889")).toHaveAttribute("aria-checked", "true");
+  await expect(page.getByTestId("town-panel")).toContainText("Denison");
+  await page.getByTestId("year-1903").click();
+  await expect(page).toHaveURL(/year=1903/);
+  await page.goto("/lab?model=B");
+  await expect(page.getByTestId("model-b-table")).toBeVisible();
 });

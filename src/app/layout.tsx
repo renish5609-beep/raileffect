@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "@fontsource-variable/source-serif-4";
 import "@fontsource/barlow-condensed/500.css";
 import "@fontsource/barlow-condensed/600.css";
@@ -17,9 +17,12 @@ export const metadata: Metadata = {
     "An open computational-history platform testing whether historical railroad access shaped the growth, decline and persistence of Texas towns, using digitized census tables and Atack's railroad GIS.",
 };
 
+export const viewport: Viewport = { themeColor: "#161b26" };
+
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
+      <head><link rel="preconnect" href="https://tiles.openfreemap.org" crossOrigin="" /></head>
       <body className="min-h-screen flex flex-col">
         <a href="#main" className="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:bg-cream focus:p-2">Skip to content</a>
         <SiteHeader />

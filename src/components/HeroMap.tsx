@@ -9,6 +9,7 @@ const RailMap = dynamic(() => import("./RailMap"), { ssr: false, loading: () => 
 /** The site's one orchestrated motion moment: on first view the network grows benchmark by benchmark, once. */
 export default function HeroMap({ towns, years, trackKm }: { towns: MapTown[]; years: number[]; trackKm: Record<string, number> }) {
   const [year, setYear] = useState<number>(years[0]);
+  const [playing, setPlaying] = useState(false);
   const played = useRef(false);
   const timer = useRef<ReturnType<typeof setInterval> | null>(null);
   useEffect(() => {
@@ -17,15 +18,17 @@ export default function HeroMap({ towns, years, trackKm }: { towns: MapTown[]; y
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (reduce) { setYear(years[years.length - 1]); return; }
     let i = 0;
+    setPlaying(true);
     timer.current = setInterval(() => {
       i += 1;
       setYear(years[i]);
-      if (i >= years.length - 1 && timer.current) clearInterval(timer.current);
+      if (i >= years.length - 1 && timer.current) { clearInterval(timer.current); setPlaying(false); }
     }, 750);
     return () => { if (timer.current) clearInterval(timer.current); };
   }, [years]);
   const served = useMemo(() => towns.filter((t) => t.firstServed != null && t.firstServed <= year).length, [towns, year]);
-  const pick = (y: number | "2020") => { if (timer.current) clearInterval(timer.current); setYear(y as number); };
+  const stop = () => { if (timer.current) clearInterval(timer.current); setPlaying(false); };
+  const pick = (y: number | "2020") => { stop(); setYear(y as number); };
   return (
     <div>
       <div className="relative border border-white/10"><div className="h-[300px] sm:h-[460px] lg:h-[520px]">
@@ -36,6 +39,10 @@ export default function HeroMap({ towns, years, trackKm }: { towns: MapTown[]; y
           <br />{served} of {towns.length} study towns within 2 km
         </p>
       </div>
+      {playing && (
+        <button type="button" onClick={() => { stop(); setYear(years[years.length - 1]); }}
+          className="ui mt-3 text-[0.9rem] font-semibold text-cream/80 hover:text-white underline underline-offset-4">Stop the animation and show 1911</button>
+      )}
       <div className="mt-4"><BenchmarkRail years={years} value={year} onChange={pick} dark testidPrefix="hero-year" /></div>
       <p className="ui text-cream/55 text-[0.85rem] mt-1">Stations are the dates of Atack’s source maps, spaced in real time. Nothing between them is drawn. Railroads: J. Atack (2016). Boundaries: U.S. Census TIGER/Line.</p>
     </div>

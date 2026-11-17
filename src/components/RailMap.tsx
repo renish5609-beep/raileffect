@@ -168,7 +168,7 @@ export default function RailMap({ year, towns, selectedTownId, onTownClick, onSe
     <div className="relative w-full overflow-hidden" style={{ height, background: P.bg }}>
       <div ref={ref} className="absolute inset-0" style={{ position: "absolute", width: "100%", height: "100%" }} data-testid="rail-map" data-ready={ready ? "1" : "0"} aria-label="Interactive map of historical Texas railroads and towns" role="region" />
       {!ready && !error && (
-        <div className="ui absolute inset-0 grid place-items-center text-sm" style={{ color: P.future }} aria-live="polite">Loading the railroad layers</div>
+        <div className="ui absolute inset-0 grid place-items-center text-sm" style={{ color: P.future }} aria-live="polite">Loading the railroad layers…</div>
       )}
       {error && <div role="alert" className="absolute top-3 left-3 right-3 bg-rail text-cream text-sm px-3 py-2 rounded">{error}</div>}
       {basemap === false && ready && theme === "paper" && (

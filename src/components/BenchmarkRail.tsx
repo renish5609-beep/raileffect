@@ -46,7 +46,7 @@ export default function BenchmarkRail({ years, value, onChange, dark = false, ex
           {years.map((y, i) => {
             const sel = value === y;
             return (
-              <button key={y} type="button" role="radio" aria-checked={sel} aria-pressed={sel} data-i={i} tabIndex={sel || (idx < 0 && i === 0) ? 0 : -1}
+              <button key={y} type="button" role="radio" aria-checked={sel} data-i={i} tabIndex={sel || (idx < 0 && i === 0) ? 0 : -1}
                 data-testid={`${testidPrefix}-${y}`} onClick={() => onChange(y)}
                 className={`station top-1/2 ${y <= current ? "passed" : ""}`}
                 style={{ left: `${pos(y)}%`, transform: `translate(-50%, ${i % 2 ? "-12px" : "-30px"})` }}>
@@ -57,7 +57,7 @@ export default function BenchmarkRail({ years, value, onChange, dark = false, ex
         </div>
       </div>
       {extra && (
-        <button type="button" role="radio" aria-checked={value === extra.value} aria-pressed={value === extra.value} data-i={all.length - 1}
+        <button type="button" role="radio" aria-checked={value === extra.value} data-i={all.length - 1}
           tabIndex={value === extra.value ? 0 : -1} data-testid={`${testidPrefix}-2020`} onClick={() => onChange(extra.value)}
           className={`ui shrink-0 mb-2 px-3 py-1.5 rounded-sm border-2 text-[0.95rem] font-semibold transition-colors ${value === extra.value ? "bg-slate border-slate text-white" : dark ? "border-cream/40 hover:border-cream" : "border-slate/50 text-slate hover:border-slate"}`}>
           {extra.label}
