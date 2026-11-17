@@ -16,7 +16,7 @@ function Forest({ rows, label }: { rows: { name: string; coef: number; lo: numbe
   return <Chart label={label} height={Math.max(180, 46 * rows.length + 70)} data={[{
     type: "scatter", mode: "markers", x: rows.map((r) => r.coef), y: rows.map((r) => r.name),
     error_x: { type: "data", symmetric: false, array: rows.map((r) => r.hi - r.coef), arrayminus: rows.map((r) => r.coef - r.lo), color: COLORS.ink, thickness: 1.5 },
-    marker: { color: COLORS.served, size: 10 }, hovertemplate: "%{y}: %{x:.3f}<extra></extra>",
+    marker: { color: COLORS.served, size: 10, line: { color: "#f4f5f0", width: 2 } }, hovertemplate: "%{y}: %{x:.3f}<extra></extra>",
   }]} layout={{ margin: { l: 230, r: 20, t: 10, b: 40 }, xaxis: { title: { text: "Coefficient (95% CI, HC3)" }, zeroline: true, zerolinewidth: 2 }, yaxis: { automargin: true }, showlegend: false }} />;
 }
 
@@ -48,8 +48,9 @@ export default function Lab({ m }: { m: any }) {
             <Chart label="Mean growth by group with bootstrap 95% CI" height={300} data={[{
               type: "bar", x: desc.map((d) => gname(d.group)), y: desc.map((d) => d.mean),
               error_y: { type: "data", symmetric: false, array: desc.map((d) => d.mean_ci[1] - d.mean), arrayminus: desc.map((d) => d.mean - d.mean_ci[0]), color: COLORS.ink },
-              marker: { color: desc.map((d) => (d.group === "0" || d.group.startsWith("not") ? COLORS.notServed : COLORS.served)) }, hovertemplate: "%{x}: %{y:.3f}<extra></extra>",
-            }]} layout={{ yaxis: { title: { text: "Mean log growth" } }, showlegend: false }} />
+              marker: { color: desc.map((d) => (d.group === "0" || d.group.startsWith("not") ? COLORS.notServed : COLORS.served)) }, hovertemplate: "%{x}: mean %{y:.3f}<extra></extra>",
+              width: desc.map(() => (desc.length <= 2 ? 0.32 : 0.5)),
+            }]} layout={{ yaxis: { title: { text: "Mean log growth, 1940 to 2020" } }, showlegend: false }} />
             <table className="w-full text-sm mt-3" data-testid="model-a-table">
               <thead><tr className="text-left border-b border-rule"><th className="py-1">Group</th><th>n</th><th>Mean (95% CI)</th><th>Median (95% CI)</th><th>Share declined</th></tr></thead>
               <tbody>{desc.map((d) => (

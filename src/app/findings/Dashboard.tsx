@@ -1,6 +1,6 @@
 "use client";
 import { useMemo, useState } from "react";
-import { Chart, COLORS } from "@/components/Chart";
+import { Chart, COLORS, GRADE, marker } from "@/components/Chart";
 import { Card, Stat, KindTag, fmt } from "@/components/ui";
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -8,6 +8,21 @@ const mean = (a: number[]) => (a.length ? a.reduce((x, y) => x + y, 0) / a.lengt
 const BINS = Array.from({ length: 27 }, (_, i) => -2.5 + i * 0.25);
 const binc = (a: number[]) => BINS.slice(0, -1).map((b, i) => a.filter((x) => (i === 0 ? x < BINS[1] : i === BINS.length - 2 ? x >= b : x >= b && x < BINS[i + 1])).length);
 const median = (a: number[]) => { if (!a.length) return NaN; const s = [...a].sort((x, y) => x - y); const k = Math.floor(s.length / 2); return s.length % 2 ? s[k] : (s[k - 1] + s[k]) / 2; };
+
+function DataTable({ caption, head, rows }: { caption: string; head: string[]; rows: (string | number)[][] }) {
+  return (
+    <details className="ui mt-2 text-[0.9rem]">
+      <summary className="cursor-pointer link">Show the numbers as a table</summary>
+      <div className="overflow-x-auto mt-2">
+        <table className="w-full text-[0.88rem]">
+          <caption className="sr-only">{caption}</caption>
+          <thead><tr className="border-b border-ink text-left">{head.map((h) => <th key={h} className="py-1 pr-3 font-semibold">{h}</th>)}</tr></thead>
+          <tbody>{rows.map((r, i) => <tr key={i} className="border-b border-rule/70">{r.map((c, j) => <td key={j} className="py-1 pr-3 tabular-nums">{c}</td>)}</tr>)}</tbody>
+        </table>
+      </div>
+    </details>
+  );
+}
 
 export default function Dashboard({ s, m, idx }: { s: any; m: any; idx: any[] }) {
   const [zone, setZone] = useState("");
@@ -49,30 +64,34 @@ export default function Dashboard({ s, m, idx }: { s: any; m: any; idx: any[] })
       <div className="grid lg:grid-cols-2 gap-x-10 gap-y-12">
         <Card kicker="Distribution" title="Population change 1940–2020 (log points)">
           <Chart label="Histogram of growth by rail access" height={300} data={[
-            { type: "bar", x: BINS.slice(0, -1).map((b) => b + 0.125), y: binc(gs).map((c) => c / Math.max(1, gs.length)), width: 0.25, name: `Track ≤ 2 km by 1911 (n=${gs.length})`, opacity: 0.7, marker: { color: COLORS.served } } as any,
-            { type: "bar", x: BINS.slice(0, -1).map((b) => b + 0.125), y: binc(gn).map((c) => c / Math.max(1, gn.length)), width: 0.25, name: `No track (n=${gn.length})`, opacity: 0.7, marker: { color: COLORS.notServed } } as any,
-          ]} layout={{ barmode: "overlay", yaxis: { title: { text: "Share of group" }, tickformat: ".0%" }, xaxis: { title: { text: "ln(pop 2020 / pop 1940)" } }}} />
+            // two distributions as step lines (no overlapping translucent blocks); a faint wash for the larger group
+            { type: "scatter", mode: "lines", line: { shape: "hvh", width: 2, color: COLORS.served }, fill: "tozeroy", fillcolor: "rgba(163,38,42,0.08)", x: BINS.slice(0, -1).map((b) => b + 0.125), y: binc(gs).map((c) => c / Math.max(1, gs.length)), name: `Track within 2 km by 1911 (n=${gs.length})`, hovertemplate: "%{x:.2f}: %{y:.0%} of served towns<extra></extra>" } as any,
+            { type: "scatter", mode: "lines", line: { shape: "hvh", width: 2, color: COLORS.notServed }, x: BINS.slice(0, -1).map((b) => b + 0.125), y: binc(gn).map((c) => c / Math.max(1, gn.length)), name: `No track (n=${gn.length})`, hovertemplate: "%{x:.2f}: %{y:.0%} of unserved towns<extra></extra>" } as any,
+          ]} layout={{ hovermode: "x unified", yaxis: { title: { text: "Share of group" }, tickformat: ".0%" }, xaxis: { title: { text: "ln(pop 2020 / pop 1940)" } }}} />
           <p className="text-xs text-muted">Values below −2.5 or above 4 are placed in the end bins.</p>
+          <DataTable caption="Share of towns in each growth bin" head={["Bin start", "Served", "Not served"]} rows={BINS.slice(0, -1).map((b, i) => [b.toFixed(2), `${Math.round((100 * binc(gs)[i]) / Math.max(1, gs.length))}%`, `${Math.round((100 * binc(gn)[i]) / Math.max(1, gn.length))}%`])} />
           <p className="text-sm">Median: served <span className="num">{Number.isNaN(median(gs)) ? "—" : median(gs).toFixed(2)}</span>, not served <span className="num">{Number.isNaN(median(gn)) ? "—" : median(gn).toFixed(2)}</span>. Mean: <span className="num">{Number.isNaN(mean(gs)) ? "—" : mean(gs).toFixed(2)}</span> vs <span className="num">{Number.isNaN(mean(gn)) ? "—" : mean(gn).toFixed(2)}</span>. Declined: {gs.length ? Math.round(100 * gs.filter((x) => x < 0).length / gs.length) : "—"}% vs {gn.length ? Math.round(100 * gn.filter((x) => x < 0).length / gn.length) : "—"}%.</p>
         </Card>
         <Card kicker="Network growth" title="Texas track recorded by benchmark">
-          <Chart label="Track km by benchmark year" height={300} data={[{ type: "scatter", mode: "lines+markers", x: Object.keys(s.texas_track_km_by_benchmark).map(Number).filter((y) => y >= 1861), y: Object.entries(s.texas_track_km_by_benchmark).filter(([y]) => Number(y) >= 1861).map(([, v]) => v as number), line: { color: COLORS.rail }, marker: { color: COLORS.rail }, name: "km" }]}
+          <Chart label="Track km by benchmark year" height={300} data={[{ type: "scatter", mode: "lines+markers", x: Object.keys(s.texas_track_km_by_benchmark).map(Number).filter((y) => y >= 1861), y: Object.entries(s.texas_track_km_by_benchmark).filter(([y]) => Number(y) >= 1861).map(([, v]) => v as number), line: { color: COLORS.rail, width: 2 }, marker: marker(COLORS.rail), name: "km", hovertemplate: "%{x}: %{y:,.0f} km<extra></extra>" }]}
             layout={{ yaxis: { title: { text: "km of track in Texas" } }, xaxis: { title: { text: "Atack benchmark map" } }, showlegend: false }} />
+          <DataTable caption="Track in Texas by benchmark" head={["Benchmark", "km"]} rows={Object.entries(s.texas_track_km_by_benchmark).filter(([y]) => Number(y) >= 1861).map(([y, v]) => [y, Math.round(v as number).toLocaleString()])} />
           <p className="text-sm text-muted">Points are benchmark maps only. The 2020 TIGER layer ({fmt(s.tiger2020_km)} km incl. sidings and yards) is not comparable and is excluded.</p>
         </Card>
         <Card kicker="Coverage" title="Population observations by census year and grade">
-          <Chart label="Observations by year and quality" height={300} data={(["A", "B", "C"] as const).map((q, i) => ({ type: "bar", name: q === "A" ? "A verified" : q === "B" ? "B single printing" : "C uncertain", x: years, y: years.map((y) => s.observations_by_year_quality[y][q] || 0), marker: { color: [COLORS.notServed, "#c9b99a", COLORS.rail][i] } }))}
+          <Chart label="Observations by year and quality" height={300} data={(["A", "B", "C"] as const).map((q, i) => ({ type: "bar", name: q === "A" ? "A verified" : q === "B" ? "B single printing" : "C uncertain", x: years, y: years.map((y) => s.observations_by_year_quality[y][q] || 0), marker: { color: GRADE[q], line: { color: "#f4f5f0", width: 2 } }, hovertemplate: `%{x}: %{y} grade ${q}<extra></extra>`, legendrank: i }))}
             layout={{ barmode: "stack", yaxis: { title: { text: "Place-year observations" } } }} />
+          <DataTable caption="Observations by year and grade" head={["Year", "A", "B", "C"]} rows={years.map((y) => [y, ...(["A", "B", "C"] as const).map((q) => String(s.observations_by_year_quality[y][q] || 0))])} />
           <p className="text-sm text-muted">Plus official counts for {fmt(s.official_counts["2010"])} towns (2010) and {fmt(s.official_counts["2020"])} towns (2020). 1920 is not covered; 1930 and 1970 rest on one printing each.</p>
         </Card>
         <Card kicker="Missing data" title="Share of towns without a value">
           <Chart label="Missing data by year" height={300} data={[
-            { type: "bar", name: "No A/B value", x: Object.keys(s.missing), y: Object.values(s.missing) as number[], marker: { color: "#c9b99a" } },
-            { type: "bar", name: "No verified (A) value", x: Object.keys(s.missing_A), y: Object.values(s.missing_A) as number[], marker: { color: COLORS.rail } },
+            { type: "bar", name: "No grade A or B value", x: Object.keys(s.missing), y: Object.values(s.missing) as number[], marker: { color: GRADE.B }, hovertemplate: "%{x}: %{y:.0%} missing<extra></extra>" },
+            { type: "bar", name: "No verified (A) value", x: Object.keys(s.missing_A), y: Object.values(s.missing_A) as number[], marker: { color: GRADE.A }, hovertemplate: "%{x}: %{y:.0%} without a verified value<extra></extra>" },
           ]} layout={{ barmode: "group", yaxis: { title: { text: "Share missing" }, tickformat: ".0%", range: [0, 1] } }} />
         </Card>
         <Card kicker="Arrival" title="Towns by first benchmark with track ≤ 2 km">
-          <Chart label="Arrival benchmark counts" height={280} data={[{ type: "bar", x: Object.keys(s.arrival_counts), y: Object.values(s.arrival_counts) as number[], marker: { color: COLORS.served } }]} layout={{ xaxis: { type: "category", title: { text: "Benchmark map" } }, yaxis: { title: { text: "Towns" } }, showlegend: false }} />
+          <Chart label="Arrival benchmark counts" height={280} data={[{ type: "bar", x: Object.keys(s.arrival_counts), y: Object.values(s.arrival_counts) as number[], marker: { color: COLORS.served }, hovertemplate: "%{x} map: %{y} towns<extra></extra>" }]} layout={{ xaxis: { type: "category", title: { text: "Benchmark map" } }, yaxis: { title: { text: "Towns" } }, showlegend: false }} />
           <p className="text-sm text-muted">{fmt(s.towns_analyzed - Object.values(s.arrival_counts).reduce((a: number, b: any) => a + b, 0))} towns had no track within 2 km by 1911. {fmt(s.lost_rail_by_2020)} rail-served towns have no 2020 rail feature within 2 km.</p>
         </Card>
         <Card kicker="Graph" title="Network snapshots (study area)">
@@ -91,7 +110,7 @@ export default function Dashboard({ s, m, idx }: { s: any; m: any; idx: any[] })
           error_x: { type: "data", symmetric: false,
             array: [...m.model_b.models.filter((x: any) => x.terms.some((t: any) => t.term === "served1911")).map((x: any) => { const t = x.terms.find((t: any) => t.term === "served1911"); return t.ci_high - t.coef; }), ...m.robustness.filter((r: any) => r.coef != null).map((r: any) => r.ci_high - r.coef)],
             arrayminus: [...m.model_b.models.filter((x: any) => x.terms.some((t: any) => t.term === "served1911")).map((x: any) => { const t = x.terms.find((t: any) => t.term === "served1911"); return t.coef - t.ci_low; }), ...m.robustness.filter((r: any) => r.coef != null).map((r: any) => r.coef - r.ci_low)] },
-          marker: { color: COLORS.served, size: 9 },
+          marker: marker(COLORS.served, 10), hovertemplate: "%{y}: %{x:.3f}<extra></extra>",
         }]} layout={{ margin: { l: 300, r: 20, t: 10, b: 40 }, xaxis: { title: { text: "Coefficient on rail access (log points, 95% CI)" }, zerolinewidth: 2 }, yaxis: { automargin: true }, showlegend: false }} />
       </Card>
     </div>

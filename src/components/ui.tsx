@@ -44,7 +44,7 @@ export function Card({ children, className = "", title }: { children: ReactNode;
 export function Stat({ label, value, note, testid }: { label: string; value: ReactNode; note?: ReactNode; testid?: string }) {
   return (
     <div className="py-1" data-testid={testid}>
-      <div className="font-serif font-semibold text-[2.6rem] sm:text-[3.2rem] leading-none tabular-nums text-ink">{value}</div>
+      <div className="font-serif font-semibold text-[2.6rem] sm:text-[3.2rem] leading-none text-ink" style={{ fontVariantNumeric: "proportional-nums" }}>{value}</div>
       <div className="ui text-[0.95rem] text-ink mt-2 max-w-[24ch] leading-snug">{label}</div>
       {note && <div className="ui text-[0.82rem] text-muted mt-1">{note}</div>}
     </div>
