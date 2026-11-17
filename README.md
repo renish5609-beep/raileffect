@@ -1,5 +1,7 @@
 # RailEffect
 
+**Live site:** https://raileffect-fpv1.vercel.app
+
 **Did railroads influence which Texas towns survived, grew, declined or disappeared?**
 
 RailEffect is an open-source computational-history platform. It links Jeremy Atack's historical railroad GIS (1826–1911) to Texas town populations that this project digitised from scanned U.S. Census volumes (1910–1970), verified by agreement across independently printed volumes, and joined to official 2010/2020 counts. It then tests — rather than assumes — whether early rail access predicts later growth.
