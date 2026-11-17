@@ -5,7 +5,7 @@ const isMobile = (page: Page) => (page.viewportSize()?.width ?? 1000) < 700;
 test("main research journey", async ({ page, context }) => {
   // 1. homepage communicates the research question
   await page.goto("/");
-  await expect(page.getByRole("heading", { level: 1 })).toContainText("railroads");
+  await expect(page.getByRole("heading", { level: 1 })).toContainText(/railroad/i);
   await expect(page.getByTestId("home-stats")).toContainText("Texas towns");
 
   // 2. navigate to the Railroad Explorer

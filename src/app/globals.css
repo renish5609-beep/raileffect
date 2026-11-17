@@ -1,22 +1,25 @@
 @import "tailwindcss";
 
 @theme {
-  --color-ink: #1b1916;
-  --color-coal: #24211d;
-  --color-coal-2: #2e2a25;
-  --color-cream: #f5f0e6;
-  --color-paper: #fbf8f2;
-  --color-sand: #e7dfcf;
-  --color-rule: #d6ccb8;
-  --color-muted: #6b6257;
-  --color-copper: #a85a32;
-  --color-copper-2: #c9784b;
-  --color-rail: #8f2b21;
-  --color-sage: #5b7262;
-  --color-slate: #4a5866;
-  --font-serif: "Source Serif 4 Variable", "Iowan Old Style", Georgia, serif;
-  --font-sans: "Inter Variable", system-ui, -apple-system, "Segoe UI", sans-serif;
-  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  /* Named after the subject: census ledger paper, printer's ink, the red of railroad lines on period maps */
+  --color-ink: #161b26;          /* printer's ink (blue-black) */
+  --color-coal: #161b26;
+  --color-coal-2: #232a37;
+  --color-cream: #eceee6;        /* ledger paper */
+  --color-paper: #f4f5f0;
+  --color-sand: #e1e4da;
+  --color-rule: #c9cdc2;
+  --color-muted: #5a616c;        /* graphite */
+  --color-copper: #a3262a;       /* map red: the track itself */
+  --color-copper-2: #d0484a;
+  --color-rail: #a3262a;
+  --color-sage: #71834f;         /* prairie: towns without track */
+  --color-slate: #2d5b88;        /* survey blue: modern network, links */
+  --font-serif: "Barlow Condensed", "Arial Narrow", sans-serif;   /* headings & figures: timetable lettering */
+  --font-sans: "Barlow", system-ui, sans-serif;                  /* controls */
+  --font-body: "Source Serif 4 Variable", Georgia, serif;        /* reading text */
+  --font-mono: "Barlow Condensed", "Arial Narrow", sans-serif;   /* numbers: tabular lining figures */
+  --ease-out: cubic-bezier(.2,.8,.2,1);
 }
 
 :root {
@@ -29,36 +32,75 @@ html, body {
 }
 
 body {
-  font-family: var(--font-sans);
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
+/* type scale (1.25 modular), condensed headings set tight */
 h1, h2, h3, .serif {
   font-family: var(--font-serif);
-  letter-spacing: -0.01em;
+  font-weight: 600;
+  letter-spacing: 0.002em;
+  line-height: 1.02;
 }
+h1 { font-weight: 700; }
 
-.num, code, .mono {
+.num, .mono {
   font-family: var(--font-mono);
-  font-variant-numeric: tabular-nums;
+  font-variant-numeric: tabular-nums lining-nums;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .85em; }
+
+button, input, select, label, nav, table, figure, .ui { font-family: var(--font-sans); }
+table { font-variant-numeric: tabular-nums; }
+
+::selection { background: color-mix(in oklab, var(--color-copper) 22%, transparent); }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .001ms !important; transition-duration: .001ms !important; }
 }
 
 a { text-underline-offset: 3px; }
 
-.prose-re p { margin: 0 0 1rem; line-height: 1.7; }
-.prose-re h2 { font-size: 1.6rem; margin: 2.5rem 0 1rem; }
-.prose-re h3 { font-size: 1.2rem; margin: 1.75rem 0 .6rem; }
+.prose-re p { margin: 0 0 1rem; line-height: 1.72; max-width: 68ch; }
+.prose-re h2 { font-size: 2rem; margin: 3rem 0 .9rem; padding-top: 1rem; border-top: 2px solid var(--color-ink); }
+.prose-re h3 { font-size: 1.35rem; margin: 1.75rem 0 .5rem; }
 .prose-re ul { list-style: disc; padding-left: 1.25rem; margin: 0 0 1rem; }
 .prose-re ol { list-style: decimal; padding-left: 1.25rem; margin: 0 0 1rem; }
-.prose-re li { margin: .3rem 0; line-height: 1.6; }
+.prose-re li { margin: .35rem 0; line-height: 1.65; max-width: 68ch; }
 .prose-re a { color: var(--color-copper); text-decoration: underline; }
 .prose-re code { font-size: .85em; background: var(--color-sand); padding: 0 .3em; border-radius: 3px; }
 .prose-re table { width: 100%; border-collapse: collapse; font-size: .9rem; margin: 1rem 0 1.5rem; }
 .prose-re th, .prose-re td { border-bottom: 1px solid var(--color-rule); padding: .4rem .5rem; text-align: left; vertical-align: top; }
 
-.maplibregl-popup-content { font-family: var(--font-sans); border-radius: 6px !important; padding: 10px 12px !important; }
+.maplibregl-popup-content { font-family: var(--font-sans); border-radius: 2px !important; padding: 10px 12px !important; }
+.maplibregl-ctrl-attrib { font-family: var(--font-sans); }
 
 :focus-visible { outline: 2px solid var(--color-copper); outline-offset: 2px; }
 
 /* grid items must be allowed to shrink below their content width (tables/charts scroll inside) */
 .grid > * { min-width: 0; }
+
+/* timetable rail: benchmark years as stations on a line (a genuine sequence) */
+.rail-line { position: relative; }
+.rail-line::before { content: ""; position: absolute; left: 0; right: 0; top: 50%; height: 3px; transform: translateY(-50%); background: var(--rail-track, var(--color-rule)); }
+.rail-fill { position: absolute; left: 0; top: 50%; height: 3px; transform: translateY(-50%); background: var(--color-copper); transition: width .45s var(--ease-out); }
+.station { position: relative; z-index: 1; display: grid; justify-items: center; gap: .35rem; background: none; border: 0; cursor: pointer; padding: .25rem .1rem; color: inherit; }
+.station-dot { width: 14px; height: 14px; border-radius: 999px; border: 3px solid var(--color-rule); background: var(--color-paper); transition: transform .2s var(--ease-out), border-color .2s, background .2s; }
+.station[aria-pressed="true"] .station-dot, .station.passed .station-dot { border-color: var(--color-copper); }
+.station[aria-pressed="true"] .station-dot { background: var(--color-copper); transform: scale(1.35); }
+.station:hover .station-dot { border-color: var(--color-copper); }
+.station-year { font-family: var(--font-serif); font-weight: 600; font-size: 1.05rem; font-variant-numeric: tabular-nums; line-height: 1; }
+.station[aria-pressed="true"] .station-year { color: var(--color-copper); }
+
+/* evidence notes: margin rule + small-caps label, replaces pill tags */
+.evidence { border-left: 3px solid var(--note, var(--color-muted)); padding-left: .85rem; }
+.evidence-kind { font-family: var(--font-sans); font-size: .78rem; font-weight: 600; color: var(--note, var(--color-muted)); letter-spacing: .01em; }
+
+.link { color: var(--color-slate); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+.link:hover { text-decoration-thickness: 2px; }

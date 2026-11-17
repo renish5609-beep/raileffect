@@ -1,10 +1,9 @@
 "use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export const NAV = [
-  { href: "/", label: "Overview" },
   { href: "/explorer", label: "Railroad Explorer" },
   { href: "/towns", label: "Towns" },
   { href: "/lab", label: "Research Lab" },
@@ -14,41 +13,44 @@ export const NAV = [
   { href: "/data", label: "Data" },
 ];
 
+function Mark() {
+  return (
+    <svg width="30" height="22" viewBox="0 0 30 22" aria-hidden="true">
+      <path d="M2 7 H28 M2 15 H28" stroke="#d0484a" strokeWidth="2" />
+      {[5, 11, 17, 23].map((x) => <rect key={x} x={x} y="3" width="2.4" height="16" fill="#eceee6" />)}
+    </svg>
+  );
+}
+
 export function SiteHeader() {
   const path = usePathname();
   const [open, setOpen] = useState(false);
-  const active = (h: string) => (h === "/" ? path === "/" : path.startsWith(h));
+  useEffect(() => setOpen(false), [path]);
+  const active = (h: string) => path.startsWith(h);
   return (
-    <header className="bg-coal text-cream border-b border-black/30 sticky top-0 z-40">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 h-14 flex items-center justify-between gap-4">
-        <Link href="/" className="flex items-center gap-2 shrink-0" aria-label="RailEffect home">
-          <svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true">
-            <rect x="1" y="1" width="24" height="24" rx="4" fill="none" stroke="#c9784b" strokeWidth="1.5" />
-            <path d="M8 4 L8 22 M18 4 L18 22" stroke="#f5f0e6" strokeWidth="1.6" />
-            <path d="M6 8 H20 M6 13 H20 M6 18 H20" stroke="#c9784b" strokeWidth="1.6" />
-          </svg>
-          <span className="serif text-lg font-semibold tracking-tight">RailEffect</span>
+    <header className="bg-coal text-cream sticky top-0 z-40 border-b border-white/10">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 h-14 flex items-center justify-between gap-6">
+        <Link href="/" className="flex items-center gap-2.5 shrink-0" aria-label="RailEffect home">
+          <Mark />
+          <span className="font-serif text-[1.45rem] font-bold leading-none">RailEffect</span>
         </Link>
-        <nav aria-label="Primary" className="hidden lg:flex items-center gap-1 text-sm">
+        <nav aria-label="Primary" className="hidden lg:flex items-stretch h-full">
           {NAV.map((n) => (
-            <Link key={n.href} href={n.href}
-              className={`px-3 py-1.5 rounded-md transition-colors ${active(n.href) ? "bg-white/10 text-white" : "text-cream/75 hover:text-white hover:bg-white/5"}`}
-              aria-current={active(n.href) ? "page" : undefined}>
+            <Link key={n.href} href={n.href} aria-current={active(n.href) ? "page" : undefined}
+              className={`relative flex items-center px-3 text-[0.98rem] font-medium transition-colors ${active(n.href) ? "text-white" : "text-cream/70 hover:text-white"}`}>
               {n.label}
+              <span aria-hidden="true" className={`absolute left-3 right-3 bottom-0 h-[3px] bg-copper-2 transition-transform duration-300 origin-left ${active(n.href) ? "scale-x-100" : "scale-x-0"}`} />
             </Link>
           ))}
         </nav>
-        <button className="lg:hidden text-cream/90 px-2 py-1 border border-white/20 rounded" aria-expanded={open}
-          aria-controls="mobile-nav" onClick={() => setOpen(!open)}>Menu</button>
+        <button className="lg:hidden text-cream px-3 py-1.5 border border-white/25 rounded-sm text-sm font-semibold" aria-expanded={open}
+          aria-controls="mobile-nav" onClick={() => setOpen(!open)}>{open ? "Close" : "Menu"}</button>
       </div>
-      {open && (
-        <nav id="mobile-nav" aria-label="Primary mobile" className="lg:hidden border-t border-white/10 px-4 pb-3">
-          {NAV.map((n) => (
-            <Link key={n.href} href={n.href} onClick={() => setOpen(false)}
-              className={`block py-2 ${active(n.href) ? "text-copper-2" : "text-cream/85"}`}>{n.label}</Link>
-          ))}
-        </nav>
-      )}
+      <nav id="mobile-nav" aria-label="Primary mobile" hidden={!open} className="lg:hidden border-t border-white/10 px-4 pb-4 pt-1 bg-coal">
+        {NAV.map((n) => (
+          <Link key={n.href} href={n.href} className={`block py-2.5 text-[1.05rem] border-b border-white/5 ${active(n.href) ? "text-copper-2" : "text-cream/90"}`}>{n.label}</Link>
+        ))}
+      </nav>
     </header>
   );
 }
