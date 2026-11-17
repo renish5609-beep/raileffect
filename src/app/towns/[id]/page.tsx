@@ -29,19 +29,19 @@ export default async function Page({ params }: { params: Promise<{ id: string }>
   const portal = `https://texashistory.unt.edu/search/?q=${encodeURIComponent(`"${t.name}" Texas`)}&t=fulltext`;
   return (
     <>
-      <section className="bg-coal text-cream">
+      <section className="bg-coal text-cream relative">
         <Container className="py-8">
-          <p className="text-copper-2 text-xs uppercase tracking-[0.18em]"><Link href="/towns" className="underline">Towns</Link> / {t.county} County</p>
-          <h1 className="text-3xl sm:text-5xl font-semibold mt-2" data-testid="town-name">{t.name}</h1>
-          <p className="text-cream/75 mt-2 num text-sm">{t.lat.toFixed(4)}°N, {Math.abs(t.lon).toFixed(4)}°W · coordinates: {t.coord_match}</p>
+          <p className="ui text-cream/70 text-[0.95rem]"><Link href="/towns" className="underline underline-offset-4 hover:text-white">All towns</Link><span aria-hidden="true"> / </span>{t.county} County</p>
+          <h1 className="text-[3.2rem] sm:text-[5rem] leading-none mt-2" data-testid="town-name">{t.name}</h1>
+          <p className="ui text-cream/65 mt-3 text-[0.9rem]"><span className="tabular-nums">{t.lat.toFixed(4)}°N, {Math.abs(t.lon).toFixed(4)}°W</span>, located from the {t.coord_source === "usgs_gnis" ? "USGS GNIS populated-place point" : "2020 Census place point"}</p>
           <div className="mt-4 flex flex-wrap gap-2">
-            <Link href={`/compare?a=${t.id}`} className="bg-copper text-white px-3 py-2 rounded-md text-sm" data-testid="compare-link">Compare with another town</Link>
-            <Link href="/explorer" className="border border-cream/40 px-3 py-2 rounded-md text-sm">Open in Railroad Explorer</Link>
+            <Link href={`/compare?a=${t.id}`} className="ui bg-copper hover:bg-copper-2 text-white px-4 py-2.5 rounded-sm font-semibold transition-colors" data-testid="compare-link">Compare with another town</Link>
+            <Link href="/explorer" className="ui border-2 border-cream/50 hover:border-cream px-4 py-2 rounded-sm font-semibold transition-colors">Open the Railroad Explorer</Link>
           </div>
         </Container>
       </section>
-      <Container className="py-8 grid lg:grid-cols-3 gap-5">
-        <div className="lg:col-span-2 space-y-5">
+      <Container className="py-12 grid lg:grid-cols-3 gap-x-10 gap-y-12">
+        <div className="lg:col-span-2 space-y-12">
           <Card kicker="Population" title="Census population history">
             <PopChart series={[{ name: t.name, pops: t.pops }]} />
             <p className="text-xs text-muted mt-2">Solid markers: verified (A). Hollow: single-printing OCR consensus (B). Crosses: uncertain (C). Lines connect only verified values and do not imply intermediate measurements.</p>
@@ -59,8 +59,8 @@ export default async function Page({ params }: { params: Promise<{ id: string }>
                       <td className="pr-2">
                         {p.readings && p.readings.length > 0 ? p.readings.map((r, i) => {
                           const c = citation(sources, r.table, r.page);
-                          return c ? <div key={i}><a className="text-copper underline" href={c.url} target="_blank" rel="noopener noreferrer" data-testid="citation-link">{r.table.split("_")[0]} census, Table {r.table.split("_")[1]?.replace("T", "")}, p. {r.page ?? "?"}</a>{r.value != null && r.value !== p.pop ? <span className="text-muted"> (read {r.value.toLocaleString()})</span> : null}</div> : <div key={i}>{r.table}</div>;
-                        }) : p.sources.map((s) => { const src = sources.census_tables[s]; return src ? <a key={s} className="text-copper underline" href={src.url} target="_blank" rel="noopener noreferrer">{s.replace("official_", "Census ")}</a> : <span key={s}>{s}</span>; })}
+                          return c ? <div key={i}><a className="link" href={c.url} target="_blank" rel="noopener noreferrer" data-testid="citation-link">{r.table.split("_")[0]} census, Table {r.table.split("_")[1]?.replace("T", "")}, p. {r.page ?? "?"}</a>{r.value != null && r.value !== p.pop ? <span className="text-muted"> (read {r.value.toLocaleString()})</span> : null}</div> : <div key={i}>{r.table}</div>;
+                        }) : p.sources.map((s) => { const src = sources.census_tables[s]; return src ? <a key={s} className="link" href={src.url} target="_blank" rel="noopener noreferrer">{s.replace("official_", "Census ")}</a> : <span key={s}>{s}</span>; })}
                       </td>
                       <td className="text-xs text-muted">{p.note}</td>
                     </tr>
@@ -73,13 +73,13 @@ export default async function Page({ params }: { params: Promise<{ id: string }>
             <div className="overflow-x-auto">
               <table className="w-full text-sm">
                 <thead><tr className="text-left border-b border-rule"><th className="py-1">Benchmark</th>{t.rail.map((r) => <th key={r.year} className="num px-1">{r.year === 2020 ? "2020*" : r.year}</th>)}</tr></thead>
-                <tbody><tr><td className="py-1 text-muted">km</td>{t.rail.map((r) => <td key={r.year} className={`num px-1 ${r.served ? "text-copper font-medium" : ""}`}>{r.dist_km == null ? "—" : r.dist_km < 10 ? r.dist_km.toFixed(1) : Math.round(r.dist_km)}</td>)}</tr></tbody>
+                <tbody><tr><td className="py-1 text-muted">km</td>{t.rail.map((r) => <td key={r.year} className={`num px-1 ${r.served ? "text-copper font-semibold" : ""}`}>{r.dist_km == null ? "—" : r.dist_km < 10 ? r.dist_km.toFixed(1) : Math.round(r.dist_km)}</td>)}</tr></tbody>
               </table>
             </div>
             <p className="text-xs text-muted mt-2">Straight-line km from the town point to the nearest segment recorded as operating by that benchmark (Atack 2016). Highlighted ≤ 2 km. *2020 uses Census TIGER/Line rail features, a different source.</p>
           </Card>
         </div>
-        <div className="space-y-5">
+        <div className="space-y-10">
           <TownMap lat={t.lat} lon={t.lon} id={t.id} name={t.name} />
           <Card kicker="Summary" title="What the data show">
             <ul className="space-y-3 text-sm">

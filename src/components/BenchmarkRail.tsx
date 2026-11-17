@@ -1,5 +1,5 @@
 "use client";
-import { useRef, type KeyboardEvent } from "react";
+import { useEffect, useRef, type KeyboardEvent } from "react";
 
 /**
  * Benchmark years drawn as stations on a line, spaced by real elapsed time.
@@ -11,6 +11,15 @@ export default function BenchmarkRail({ years, value, onChange, dark = false, ex
   extra?: { label: string; value: "2020" }; testidPrefix?: string;
 }) {
   const ref = useRef<HTMLDivElement>(null);
+  const scroller = useRef<HTMLDivElement>(null);
+  // keep the selected station visible when the rail scrolls sideways on narrow screens (no page scroll)
+  useEffect(() => {
+    const sc = scroller.current;
+    const el = sc?.querySelector<HTMLElement>('[aria-checked="true"]');
+    if (!sc || !el || sc.scrollWidth <= sc.clientWidth) return;
+    const target = el.offsetLeft - sc.clientWidth / 2;
+    sc.scrollTo({ left: Math.max(0, target), behavior: "smooth" });
+  }, [value]);
   const min = years[0], max = years[years.length - 1];
   const pos = (y: number) => ((y - min) / (max - min)) * 100;
   const current = value === "2020" ? max : value;
@@ -31,7 +40,7 @@ export default function BenchmarkRail({ years, value, onChange, dark = false, ex
   return (
     <div ref={ref} role="radiogroup" aria-label="Railroad network snapshot" onKeyDown={move}
       className={`flex items-end gap-4 ${dark ? "text-cream" : "text-ink"}`}>
-      <div className="overflow-x-auto flex-1 -mx-1 px-1 pb-1">
+      <div ref={scroller} className="overflow-x-auto flex-1 -mx-1 px-1 pb-1 [scrollbar-width:thin]">
         <div className="rail-line relative h-16 min-w-[560px] mx-3" style={{ ["--rail-track" as string]: dark ? "#3a4252" : "var(--color-rule)" }}>
           <div className="rail-fill" style={{ width: `${pos(current)}%` }} aria-hidden="true" />
           {years.map((y, i) => {
@@ -39,7 +48,7 @@ export default function BenchmarkRail({ years, value, onChange, dark = false, ex
             return (
               <button key={y} type="button" role="radio" aria-checked={sel} aria-pressed={sel} data-i={i} tabIndex={sel || (idx < 0 && i === 0) ? 0 : -1}
                 data-testid={`${testidPrefix}-${y}`} onClick={() => onChange(y)}
-                className={`station absolute top-1/2 -translate-x-1/2 ${y <= current ? "passed" : ""}`}
+                className={`station top-1/2 ${y <= current ? "passed" : ""}`}
                 style={{ left: `${pos(y)}%`, transform: `translate(-50%, ${i % 2 ? "-12px" : "-30px"})` }}>
                 {i % 2 ? <><span className="station-dot" /><span className="station-year">{y}</span></> : <><span className="station-year">{y}</span><span className="station-dot" /></>}
               </button>

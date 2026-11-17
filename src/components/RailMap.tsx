@@ -16,6 +16,7 @@ type Props = {
   interactive?: boolean;
   focus?: { lon: number; lat: number; zoom?: number } | null;
   theme?: "paper" | "night";
+  attribution?: boolean;
 };
 
 const BASEMAP_URL = "https://tiles.openfreemap.org/styles/positron";
@@ -41,13 +42,15 @@ async function loadBaseStyle(theme: "paper" | "night"): Promise<{ style: StyleSp
 }
 
 export default function RailMap({ year, towns, selectedTownId, onTownClick, onSegmentClick, operatorFilter = "",
-  showModern = false, height = "70vh", interactive = true, focus, theme = "paper" }: Props) {
+  showModern = false, height = "70vh", interactive = true, focus, theme = "paper", attribution = true }: Props) {
   const P = PALETTES[theme];
   const ref = useRef<HTMLDivElement>(null);
   const mapRef = useRef<maplibregl.Map | null>(null);
   const [ready, setReady] = useState(false);
   const [basemap, setBasemap] = useState<boolean | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const focusRef = useRef(focus);
+  focusRef.current = focus;
   const cb = useRef({ onTownClick, onSegmentClick });
   cb.current = { onTownClick, onSegmentClick };
 
@@ -59,10 +62,15 @@ export default function RailMap({ year, towns, selectedTownId, onTownClick, onSe
       setBasemap(basemap);
       const map = new maplibregl.Map({
         container: ref.current, style, center: [-99.2, 31.2], zoom: 4.9, minZoom: 4, maxZoom: 13,
-        attributionControl: { compact: true, customAttribution: "Railroads: J. Atack (2016); boundaries: U.S. Census Bureau TIGER/Line" },
+        attributionControl: attribution ? { compact: true, customAttribution: "Railroads: J. Atack (2016); boundaries: U.S. Census Bureau TIGER/Line" } : false,
         interactive,
       });
       mapRef.current = map;
+      // always frame the whole state, whatever the container size
+      const TX: [[number, number], [number, number]] = [[-106.65, 25.84], [-93.5, 36.5]];
+      const frame = () => { if (!focusRef.current) map.fitBounds(TX, { padding: 14, animate: false }); };
+      map.once("load", frame);
+      map.on("resize", frame);
       if (interactive) map.addControl(new maplibregl.NavigationControl({ showCompass: false }), "top-right");
       map.on("error", (e) => { if (String(e.error?.message || "").includes("data/")) setError("Could not load research data layer."); });
       map.on("load", async () => {
@@ -78,10 +86,12 @@ export default function RailMap({ year, towns, selectedTownId, onTownClick, onSe
           map.addLayer({ id: "rail-hit", type: "line", source: "rail", paint: { "line-color": "#000", "line-width": 10, "line-opacity": 0 } });
           map.addSource("towns", { type: "geojson", data: { type: "FeatureCollection", features: [] } });
           map.addLayer({ id: "towns-pt", type: "circle", source: "towns", paint: {
-            "circle-radius": ["interpolate", ["linear"], ["zoom"], 4, ["case", ["==", ["get", "sel"], 1], 7, 1.8], 10, ["case", ["==", ["get", "sel"], 1], 11, 6]],
+            "circle-radius": ["interpolate", ["linear"], ["zoom"], 4, ["case", ["==", ["get", "sel"], 1], 7, 1.5], 10, ["case", ["==", ["get", "sel"], 1], 11, 6]],
             "circle-color": ["case", ["==", ["get", "sel"], 1], P.now, ["==", ["get", "served"], 1], P.served, P.unserved],
             "circle-stroke-color": ["case", ["==", ["get", "sel"], 1], "#ffffff", P.stroke],
             "circle-stroke-width": ["case", ["==", ["get", "sel"], 1], 2, 0.6],
+            "circle-opacity": ["case", ["==", ["get", "sel"], 1], 1, ["==", ["get", "served"], 1], 0.95, 0.7],
+            "circle-stroke-opacity": ["case", ["==", ["get", "served"], 1], 1, 0.4],
           } });
           map.addLayer({ id: "towns-label", type: "symbol", source: "towns", minzoom: 7, layout: {
             "text-field": ["get", "name"], "text-size": 11, "text-offset": [0, 1.1], "text-anchor": "top", "text-optional": true,

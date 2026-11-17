@@ -56,7 +56,7 @@ export default function Page() {
       <PageHeader eyebrow="Historical Case Studies" title="Paired towns, chosen by rule rather than by story">
         Each pair below was selected automatically by a rule written before looking at outcomes (except the Denison–Sherman pair, chosen as a same-county example from the project brief). None of these comparisons is a natural experiment.
       </PageHeader>
-      <Container className="py-8 space-y-8">
+      <Container className="py-12 space-y-20">
         {cases.map((c: any, i: number) => {
           const ta = getTown(c.a.id)!, tb = getTown(c.b.id)!;
           return (
@@ -78,7 +78,7 @@ export default function Page() {
                     </div>
                   </div>
                   <details className="mt-3 text-sm">
-                    <summary className="cursor-pointer text-copper">Archival citations for these figures</summary>
+                    <summary className="ui cursor-pointer link font-semibold">Archival citations for these figures</summary>
                     <ul className="mt-2 space-y-1">
                       {[ta, tb].flatMap((t) => t.pops.filter((p) => p.quality === "A").flatMap((p) => (p.readings || []).map((r, k) => {
                         const cc = citation(sources, r.table, r.page);

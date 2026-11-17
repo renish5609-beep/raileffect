@@ -30,20 +30,20 @@ export default function TownTable({ rows }: { rows: R[] }) {
   );
   return (
     <div>
-      <div className="flex flex-wrap gap-3 items-end mb-4">
-        <label className="text-sm">Search<input data-testid="towns-search" value={q} onChange={(e) => setQ(e.target.value)} placeholder="Town or county" className="block mt-1 border border-rule rounded-md px-3 py-2 bg-white w-64" /></label>
-        <label className="text-sm">Region<select value={zone} onChange={(e) => setZone(e.target.value)} className="block mt-1 border border-rule rounded-md px-2 py-2 bg-white"><option value="">All</option><option>East</option><option>Central</option><option>West</option></select></label>
-        <label className="text-sm">Rail access<select value={rail} onChange={(e) => setRail(e.target.value)} className="block mt-1 border border-rule rounded-md px-2 py-2 bg-white">
+      <div className="ui flex flex-wrap gap-4 items-end mb-6">
+        <label className="text-sm">Search<input data-testid="towns-search" value={q} onChange={(e) => setQ(e.target.value)} placeholder="Town or county" className="block mt-1 border-2 border-rule focus:border-ink outline-none rounded-sm px-3 py-2 bg-white w-64 max-w-full" /></label>
+        <label className="text-sm">Region<select value={zone} onChange={(e) => setZone(e.target.value)} className="block mt-1 border-2 border-rule rounded-sm px-2 py-2 bg-white"><option value="">All</option><option>East</option><option>Central</option><option>West</option></select></label>
+        <label className="text-sm">Rail access<select value={rail} onChange={(e) => setRail(e.target.value)} className="block mt-1 border-2 border-rule rounded-sm px-2 py-2 bg-white">
           <option value="">All</option><option value="served">Track ≤ 2 km by 1911</option><option value="unserved">No track ≤ 2 km by 1911</option><option value="lost">Track by 1911, none ≤ 2 km in 2020</option></select></label>
         <p className="text-sm text-muted ml-auto" aria-live="polite">{list.length.toLocaleString()} towns</p>
       </div>
-      <div className="overflow-x-auto border border-rule rounded-lg bg-white/70">
+      <div className="overflow-x-auto border-t-2 border-ink ui">
         <table className="w-full text-sm">
-          <thead className="bg-sand/60"><tr>{th("name", "Town")}<th className="py-2 px-2 text-left font-medium">County</th>{th("firstServed", "Rail by")}{th("pop1940", "1940")}{th("pop2020", "2020")}{th("g4020", "Change 1940–2020")}</tr></thead>
+          <thead className="border-b border-ink"><tr>{th("name", "Town")}<th className="py-2 px-2 text-left font-medium">County</th>{th("firstServed", "Rail by")}{th("pop1940", "1940")}{th("pop2020", "2020")}{th("g4020", "Change 1940–2020")}</tr></thead>
           <tbody>
             {list.slice(0, n).map((t) => (
-              <tr key={t.id} className="border-t border-rule hover:bg-sand/40">
-                <td className="py-1.5 px-2"><Link className="text-copper underline" href={`/towns/${t.id}`}>{t.name}</Link>{!t.persisted && <span className="ml-1 text-[10px] text-rail" title="Not a census place in 2020">●</span>}</td>
+              <tr key={t.id} className="border-t border-rule hover:bg-sand/60">
+                <td className="py-1.5 px-2"><Link className="link" href={`/towns/${t.id}`}>{t.name}</Link>{!t.persisted && <span className="ml-1 text-[10px] text-rail" title="Not a census place in 2020">●</span>}</td>
                 <td className="px-2">{t.county}</td>
                 <td className="px-2 num">{t.firstServed ?? "—"}</td>
                 <td className="px-2 num">{fmt(t.pop1940)}</td>
@@ -54,7 +54,7 @@ export default function TownTable({ rows }: { rows: R[] }) {
           </tbody>
         </table>
       </div>
-      {n < list.length && <button onClick={() => setN(n + 120)} className="mt-3 text-sm border border-rule px-3 py-1.5 rounded-md bg-white">Show more</button>}
+      {n < list.length && <button onClick={() => setN(n + 120)} className="ui mt-4 font-semibold border-2 border-ink px-4 py-2 rounded-sm hover:bg-ink hover:text-cream transition-colors">Show more</button>}
       <p className="text-xs text-muted mt-3">“Rail by” = first Atack benchmark map with track within 2 km of the town point. 1940 values shown only when verified (quality A). <span className="text-rail">●</span> not a census place in 2020.</p>
     </div>
   );

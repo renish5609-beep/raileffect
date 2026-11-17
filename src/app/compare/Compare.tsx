@@ -10,8 +10,8 @@ type I = { id: string; name: string; county: string };
 
 function Picker({ label, value, index, onChange, testid }: { label: string; value: string; index: I[]; onChange: (id: string) => void; testid: string }) {
   return (
-    <label className="text-sm block">{label}
-      <select data-testid={testid} value={value} onChange={(e) => onChange(e.target.value)} className="block mt-1 w-full border border-rule rounded-md px-2 py-2 bg-white">
+    <label className="ui font-semibold block">{label}
+      <select data-testid={testid} value={value} onChange={(e) => onChange(e.target.value)} className="block mt-1 w-full border-2 border-rule rounded-sm px-2 py-2 bg-white">
         <option value="">Choose a town…</option>
         {index.map((t) => <option key={t.id} value={t.id}>{t.name} ({t.county})</option>)}
       </select>
@@ -50,8 +50,7 @@ export default function Compare({ index }: { index: I[] }) {
   ];
   return (
     <div className="mx-auto max-w-6xl px-4 sm:px-6 py-8">
-      <p className="text-copper uppercase tracking-[0.18em] text-xs font-medium">Compare</p>
-      <h1 className="text-3xl font-semibold mb-5">Two towns, side by side</h1>
+      <h1 className="text-[2.6rem] sm:text-[3.4rem] mb-6">Two towns, side by side</h1>
       <div className="grid sm:grid-cols-2 gap-4 mb-5">
         <Picker label="Town A" value={a} index={index} onChange={setA} testid="pick-a" />
         <Picker label="Town B" value={b} index={index} onChange={setB} testid="pick-b" />
@@ -59,13 +58,13 @@ export default function Compare({ index }: { index: I[] }) {
       {err && <p role="alert" className="text-rail">{err}</p>}
       {(ta || tb) && (
         <>
-          <div className="bg-white/70 border border-rule rounded-lg p-4" data-testid="compare-chart">
+          <div className="border-t-2 border-ink pt-4" data-testid="compare-chart">
             <label className="text-sm flex items-center gap-2 mb-2"><input type="checkbox" checked={log} onChange={(e) => setLog(e.target.checked)} /> Log scale</label>
             <PopChart series={[ta, tb].filter(Boolean).map((t) => ({ name: (t as Town).name, pops: (t as Town).pops }))} log={log} height={340} />
           </div>
           <div className="overflow-x-auto mt-5">
-            <table className="w-full text-sm bg-white/70 border border-rule rounded-lg" data-testid="compare-table">
-              <thead><tr className="bg-sand/60 text-left"><th className="p-2">Measure</th><th className="p-2">{ta ? <Link className="underline" href={`/towns/${ta.id}`}>{ta.name}</Link> : "—"}</th><th className="p-2">{tb ? <Link className="underline" href={`/towns/${tb.id}`}>{tb.name}</Link> : "—"}</th></tr></thead>
+            <table className="ui w-full text-[0.95rem] border-t-2 border-ink" data-testid="compare-table">
+              <thead><tr className="text-left border-b border-ink"><th className="p-2">Measure</th><th className="p-2">{ta ? <Link className="underline" href={`/towns/${ta.id}`}>{ta.name}</Link> : "—"}</th><th className="p-2">{tb ? <Link className="underline" href={`/towns/${tb.id}`}>{tb.name}</Link> : "—"}</th></tr></thead>
               <tbody>{rows.map(([k, f]) => <tr key={k} className="border-t border-rule"><td className="p-2 text-muted">{k}</td><td className="p-2 num">{ta ? f(ta) : "—"}</td><td className="p-2 num">{tb ? f(tb) : "—"}</td></tr>)}</tbody>
             </table>
           </div>

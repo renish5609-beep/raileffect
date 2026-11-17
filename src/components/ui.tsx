@@ -5,9 +5,8 @@ export function PageHeader({ eyebrow, title, children }: { eyebrow?: string; tit
   return (
     <section className="bg-coal text-cream relative overflow-hidden">
       <TrackOrnament />
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 pt-12 pb-10 sm:pt-16 sm:pb-14">
-        {eyebrow && <p className="ui text-[0.95rem] text-copper-2 mb-3">{eyebrow}</p>}
-        <h1 className="text-[2.6rem] sm:text-[4.2rem] max-w-4xl text-balance">{title}</h1>
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 pt-10 pb-12 sm:pt-14 sm:pb-14">
+        <h1 className="text-[2.6rem] sm:text-[4rem] max-w-5xl text-balance" data-section={eyebrow}>{title}</h1>
         {children && <div className="mt-5 text-cream/80 max-w-[62ch] text-[1.08rem] leading-relaxed">{children}</div>}
       </div>
     </section>
@@ -72,7 +71,7 @@ type Kind = keyof typeof KIND_COLOR;
 
 /** Evidence-type label. Use inside an <Evidence> block, or alone for inline use. */
 export function KindTag({ kind }: { kind: Kind }) {
-  return <span className="evidence-kind block" style={{ ["--note" as string]: KIND_COLOR[kind] }}>{kind}</span>;
+  return <span className="evidence-kind block mt-4 first:mt-0" style={{ ["--note" as string]: KIND_COLOR[kind] }}>{kind}</span>;
 }
 
 export function Evidence({ kind, children }: { kind: Kind; children: ReactNode }) {

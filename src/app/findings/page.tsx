@@ -10,7 +10,7 @@ export default function Page() {
   const idx = readJson<any[]>("towns_index.json");
   return (
     <>
-      <PageHeader eyebrow="Research Findings" title="What the evidence does — and does not — show">
+      <PageHeader eyebrow="Research Findings" title="What the evidence shows, and what it can’t">
         Every number on this page is computed from the published data at build time. Filters recompute descriptive statistics in your browser; model estimates are fixed results from the full sample.
       </PageHeader>
       <Container className="py-8"><Dashboard s={getSummary()} m={getModels()} idx={idx} /></Container>

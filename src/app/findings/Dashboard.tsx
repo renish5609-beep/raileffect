@@ -21,8 +21,8 @@ export default function Dashboard({ s, m, idx }: { s: any; m: any; idx: any[] })
   const years = Object.keys(s.observations_by_year_quality);
   const eras = ["by 1872", "1873-1881", "1882-1889", "1890-1911", "not served by 1911"];
   return (
-    <div className="space-y-6">
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-5" data-testid="headline-stats">
+    <div className="space-y-12">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-8" data-testid="headline-stats">
         <Stat testid="stat-towns" label="Towns analysed (geolocated census places)" value={fmt(s.towns_analyzed)} note={`from ${fmt(s.candidate_census_identities)} OCR'd place identities`} />
         <Stat testid="stat-segments" label="Atack track segments in Texas" value={fmt(s.rail_segments_texas)} note={`${s.benchmark_years.length} benchmark snapshots, ${s.benchmark_years[0]}–${s.benchmark_years[s.benchmark_years.length - 1]}`} />
         <Stat testid="stat-obs" label="Population observations (A or B)" value={fmt(s.population_observations_ab)} note={`incl. ${fmt(s.official_counts["2010"] + s.official_counts["2020"])} official 2010/2020 counts`} />
@@ -38,15 +38,15 @@ export default function Dashboard({ s, m, idx }: { s: any; m: any; idx: any[] })
         </div>
       </Card>
 
-      <div className="flex flex-wrap gap-3 items-end bg-sand/40 border border-rule rounded-lg p-3 text-sm" aria-label="Filters">
-        <span className="font-medium">Explore descriptive results:</span>
-        <label>Region <select value={zone} onChange={(e) => setZone(e.target.value)} className="border border-rule rounded px-2 py-1 bg-white"><option value="">All</option><option>East</option><option>Central</option><option>West</option></select></label>
-        <label>Arrival <select value={era} onChange={(e) => setEra(e.target.value)} className="border border-rule rounded px-2 py-1 bg-white"><option value="">All</option>{eras.map((e) => <option key={e}>{e}</option>)}</select></label>
-        <label>1940 size <select value={size} onChange={(e) => setSize(e.target.value)} className="border border-rule rounded px-2 py-1 bg-white"><option value="">All</option><option value="small">&lt; 2,500</option><option value="mid">2,500–9,999</option><option value="large">10,000+</option></select></label>
-        <span className="ml-auto text-muted" aria-live="polite">{f.length} towns · growth known for {gs.length + gn.length}</span>
+      <div className="ui flex flex-wrap gap-4 items-end border-y-2 border-ink py-3 text-[0.95rem] sticky top-14 z-10 bg-paper" aria-label="Filters">
+        <span className="font-semibold">Filter the descriptive results</span>
+        <label>Region <select value={zone} onChange={(e) => setZone(e.target.value)} className="border-2 border-rule rounded-sm px-2 py-1 bg-white"><option value="">All</option><option>East</option><option>Central</option><option>West</option></select></label>
+        <label>Arrival <select value={era} onChange={(e) => setEra(e.target.value)} className="border-2 border-rule rounded-sm px-2 py-1 bg-white"><option value="">All</option>{eras.map((e) => <option key={e}>{e}</option>)}</select></label>
+        <label>1940 size <select value={size} onChange={(e) => setSize(e.target.value)} className="border-2 border-rule rounded-sm px-2 py-1 bg-white"><option value="">All</option><option value="small">&lt; 2,500</option><option value="mid">2,500–9,999</option><option value="large">10,000+</option></select></label>
+        <span className="ml-auto text-muted" aria-live="polite">{f.length} towns, growth known for {gs.length + gn.length}</span>
       </div>
 
-      <div className="grid lg:grid-cols-2 gap-5">
+      <div className="grid lg:grid-cols-2 gap-x-10 gap-y-12">
         <Card kicker="Distribution" title="Population change 1940–2020 (log points)">
           <Chart label="Histogram of growth by rail access" height={300} data={[
             { type: "bar", x: BINS.slice(0, -1).map((b) => b + 0.125), y: binc(gs).map((c) => c / Math.max(1, gs.length)), width: 0.25, name: `Track ≤ 2 km by 1911 (n=${gs.length})`, opacity: 0.7, marker: { color: COLORS.served } } as any,

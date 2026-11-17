@@ -43,12 +43,12 @@ export default function Page() {
           <ul className="divide-y divide-rule">
             {FILES.map((x) => (
               <li key={x.f} className="py-3">
-                <a href={`/downloads/${x.f}`} download className="text-copper underline font-medium" data-testid={`dl-${x.f}`}>{x.f}</a>
+                <a href={`/downloads/${x.f}`} download className="link font-semibold" data-testid={`dl-${x.f}`}>{x.f}</a>
                 <p className="text-sm text-muted">{x.d}</p>
               </li>
             ))}
           </ul>
-          <p className="text-sm mt-3"><a className="text-copper underline font-medium" href="/report/raileffect_report.md" data-testid="report-link">Research report (Markdown)</a> with <a className="text-copper underline" href="/report/figures/fig1_network_maps.png">generated figures</a>.</p>
+          <p className="text-sm mt-3"><a className="link font-semibold" href="/report/raileffect_report.md" data-testid="report-link">Research report (Markdown)</a> with <a className="link" href="/report/figures/fig1_network_maps.png">generated figures</a>.</p>
           <p className="text-sm mt-1">The full pipeline, tests and research report are in the <Ext href={REPO}>GitHub repository</Ext>.</p>
         </Card>
         <Card kicker="Licensing" title="Reuse terms">

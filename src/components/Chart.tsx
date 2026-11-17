@@ -8,8 +8,8 @@ const Plot = dynamic(async () => {
   return factory(Plotly);
 }, { ssr: false, loading: () => <div className="h-full w-full grid place-items-center text-sm text-muted">Loading chart…</div> });
 
-export const FONT = { family: "Inter Variable, system-ui, sans-serif", size: 12, color: "#24211d" };
-export const COLORS = { served: "#a85a32", notServed: "#5b7262", ink: "#24211d", muted: "#8a7f6c", rail: "#8f2b21", slate: "#4a5866" };
+export const FONT = { family: "Barlow, system-ui, sans-serif", size: 13, color: "#161b26" };
+export const COLORS = { served: "#a3262a", notServed: "#71834f", ink: "#161b26", muted: "#5a616c", rail: "#a3262a", slate: "#2d5b88" };
 
 export function Chart({ data, layout, height = 320, label }: { data: Data[]; layout?: Partial<Layout>; height?: number; label: string }) {
   return (
@@ -19,8 +19,8 @@ export function Chart({ data, layout, height = 320, label }: { data: Data[]; lay
         layout={{
           autosize: true, height, margin: { l: 56, r: 16, t: 16, b: 84 }, font: FONT,
           paper_bgcolor: "rgba(0,0,0,0)", plot_bgcolor: "rgba(0,0,0,0)",
-          xaxis: { gridcolor: "#e7dfcf", zerolinecolor: "#d6ccb8", ...(layout?.xaxis || {}) },
-          yaxis: { gridcolor: "#e7dfcf", zerolinecolor: "#d6ccb8", ...(layout?.yaxis || {}) },
+          xaxis: { gridcolor: "#dfe2d8", zerolinecolor: "#9aa196", linecolor: "#161b26", showline: true, ...(layout?.xaxis || {}) },
+          yaxis: { gridcolor: "#dfe2d8", zerolinecolor: "#9aa196", ...(layout?.yaxis || {}) },
           legend: { orientation: "h", y: -0.32, yanchor: "top", ...(layout?.legend || {}) },
           ...Object.fromEntries(Object.entries(layout || {}).filter(([k]) => !["xaxis", "yaxis", "legend"].includes(k))),
         }}

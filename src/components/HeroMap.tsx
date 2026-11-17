@@ -28,16 +28,16 @@ export default function HeroMap({ towns, years, trackKm }: { towns: MapTown[]; y
   const pick = (y: number | "2020") => { if (timer.current) clearInterval(timer.current); setYear(y as number); };
   return (
     <div>
-      <div className="relative h-[340px] sm:h-[460px] lg:h-[520px] border border-white/10">
-        <RailMap year={year} towns={towns} height="100%" interactive={false} theme="night" />
-        <p className="ui absolute left-4 top-3 text-cream/85 text-[0.95rem]" aria-live="polite">
-          <span className="font-serif text-[2.4rem] font-bold text-white tabular-nums leading-none block">{year}</span>
-          {Math.round(trackKm[String(year)]).toLocaleString()} km of track in Texas.
-          <br />{served} of {towns.length} study towns within 2 km.
+      <div className="relative border border-white/10"><div className="h-[300px] sm:h-[460px] lg:h-[520px]">
+        <RailMap year={year} towns={towns} height="100%" interactive={false} theme="night" attribution={false} /></div>
+        <p className="ui sm:absolute left-0 bottom-0 bg-coal/90 text-cream/85 text-[0.92rem] px-4 py-3 border-t border-r border-white/10" aria-live="polite">
+          <span className="font-serif text-[2.6rem] font-bold text-white tabular-nums leading-none block">{year}</span>
+          {Math.round(trackKm[String(year)]).toLocaleString()} km of track in Texas
+          <br />{served} of {towns.length} study towns within 2 km
         </p>
       </div>
       <div className="mt-4"><BenchmarkRail years={years} value={year} onChange={pick} dark testidPrefix="hero-year" /></div>
-      <p className="ui text-cream/55 text-[0.85rem] mt-1">Stations are the dates of Atack’s source maps, spaced in real time. Nothing between them is drawn.</p>
+      <p className="ui text-cream/55 text-[0.85rem] mt-1">Stations are the dates of Atack’s source maps, spaced in real time. Nothing between them is drawn. Railroads: J. Atack (2016). Boundaries: U.S. Census TIGER/Line.</p>
     </div>
   );
 }

@@ -13,7 +13,7 @@ export default function Page() {
     <>
       <PageHeader eyebrow="Research Transparency" title="Methodology">How every number on this site was produced, what it can support, and where it is weak.</PageHeader>
       <Container className="py-8 grid lg:grid-cols-[220px_1fr] gap-8">
-        <nav aria-label="On this page" className="hidden lg:block text-sm sticky top-20 self-start space-y-1">{toc.map(([id, l]) => <a key={id} href={`#${id}`} className="block text-muted hover:text-copper">{l}</a>)}</nav>
+        <nav aria-label="On this page" className="ui hidden lg:block text-[0.95rem] sticky top-20 self-start space-y-1.5 border-l-2 border-ink pl-4">{toc.map(([id, l]) => <a key={id} href={`#${id}`} className="block text-muted hover:text-copper">{l}</a>)}</nav>
         <article className="prose-re max-w-3xl">
           <h2 id="question">Research question</h2>
           <p>Did railroad access influence which Texas towns grew, declined or persisted? The project treats this as an open empirical question. Railroads may have mattered, but so may initial size, geography, regional economies, proximity to cities and later transport such as highways. The analysis is designed so that a null or mixed result is reportable.</p>

@@ -31,10 +31,10 @@ export default function Lab({ m }: { m: any }) {
   const mb = B.models[model];
   return (
     <div>
-      <div role="tablist" aria-label="Models" className="flex flex-wrap gap-2 mb-6">
-        {([["A", "Model A · Descriptive"], ["B", "Model B · Regression"], ["C", "Model C · Panel & matching"], ["R", "Robustness"]] as const).map(([k, l]) => (
+      <div role="tablist" aria-label="Models" className="ui flex flex-wrap gap-x-6 gap-y-2 mb-8 border-b-2 border-ink">
+        {([["A", "A. Descriptive comparison"], ["B", "B. Regression"], ["C", "C. Panel and matching"], ["R", "Robustness"]] as const).map(([k, l]) => (
           <button key={k} role="tab" aria-selected={tab === k} data-testid={`tab-${k}`} onClick={() => setTab(k)}
-            className={`px-4 py-2 rounded-md text-sm border ${tab === k ? "bg-coal text-cream border-coal" : "bg-white border-rule"}`}>{l}</button>
+            className={`-mb-[2px] py-2.5 text-[1.05rem] font-semibold border-b-4 transition-colors ${tab === k ? "border-copper text-ink" : "border-transparent text-muted hover:text-ink"}`}>{l}</button>
         ))}
       </div>
 
@@ -42,8 +42,8 @@ export default function Lab({ m }: { m: any }) {
         <div className="grid lg:grid-cols-3 gap-5">
           <Card className="lg:col-span-2" kicker="Model A" title={A.title}>
             <div className="flex flex-wrap gap-3 mb-3 text-sm">
-              <label>Outcome <select value={outcome} onChange={(e) => setOutcome(e.target.value as any)} className="border border-rule rounded px-2 py-1 bg-white"><option value="g40_20">ln(pop 2020 / pop 1940)</option><option value="g40_60">ln(pop 1960 / pop 1940)</option></select></label>
-              <label>Group by <select value={group} onChange={(e) => setGroup(e.target.value as any)} className="border border-rule rounded px-2 py-1 bg-white"><option value="by_served1911">Rail access by 1911</option><option value="by_era">Benchmark of first track</option></select></label>
+              <label>Outcome <select value={outcome} onChange={(e) => setOutcome(e.target.value as any)} className="border-2 border-rule rounded-sm px-2 py-1 bg-white"><option value="g40_20">ln(pop 2020 / pop 1940)</option><option value="g40_60">ln(pop 1960 / pop 1940)</option></select></label>
+              <label>Group by <select value={group} onChange={(e) => setGroup(e.target.value as any)} className="border-2 border-rule rounded-sm px-2 py-1 bg-white"><option value="by_served1911">Rail access by 1911</option><option value="by_era">Benchmark of first track</option></select></label>
             </div>
             <Chart label="Mean growth by group with bootstrap 95% CI" height={300} data={[{
               type: "bar", x: desc.map((d) => gname(d.group)), y: desc.map((d) => d.mean),
@@ -72,7 +72,7 @@ export default function Lab({ m }: { m: any }) {
       {tab === "B" && (
         <div className="grid lg:grid-cols-3 gap-5">
           <Card className="lg:col-span-2" kicker="Model B" title="Multivariate regression">
-            <label className="text-sm">Specification <select data-testid="model-select" value={model} onChange={(e) => setModel(Number(e.target.value))} className="ml-1 border border-rule rounded px-2 py-1 bg-white max-w-full">
+            <label className="text-sm">Specification <select data-testid="model-select" value={model} onChange={(e) => setModel(Number(e.target.value))} className="ml-1 border-2 border-rule rounded-sm px-2 py-1 bg-white max-w-full">
               {B.models.map((x: any, i: number) => <option key={i} value={i}>{x.label}</option>)}</select></label>
             <p className="text-xs text-muted mt-2 num break-words">{mb.formula}</p>
             <Forest label={`Coefficient plot: ${mb.label}`} rows={mb.terms.filter((r: any) => !["x", "y", "I(x ** 2)", "I(y ** 2)", "x:y"].includes(r.term)).map((r: any) => ({ name: t(r.term), coef: r.coef, lo: r.ci_low, hi: r.ci_high }))} />
@@ -81,7 +81,7 @@ export default function Lab({ m }: { m: any }) {
               <tbody>{mb.terms.map((r: any) => (
                 <tr key={r.term} className="border-b border-rule/60"><td className="py-1">{t(r.term)}</td><td className="num">{r.coef.toFixed(3)}</td><td className="num">[{r.ci_low.toFixed(3)}, {r.ci_high.toFixed(3)}]</td><td className="num">{r.p_hc3.toFixed(3)}</td><td className="num">{r.p_cluster?.toFixed(3) ?? "—"}</td></tr>))}</tbody>
             </table>
-            <p className="text-sm mt-3"><span className="num">n = {mb.n}</span> · R² = <span className="num">{mb.r2}</span> · adj. R² = <span className="num">{mb.adj_r2}</span></p>
+            <p className="text-sm mt-3"><span className="num">n = {mb.n}</span>, R² = <span className="num">{mb.r2}</span>, adjusted R² = <span className="num">{mb.adj_r2}</span></p>
           </Card>
           <div className="space-y-5">
             <Card kicker="Diagnostics" title="Model checks">
