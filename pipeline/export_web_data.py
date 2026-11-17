@@ -42,7 +42,7 @@ def geo_exports():
     tx = tx.to_crs(WGS84)
     feats = []
     for _, r in tx.iterrows():
-        coords = [[round(x, 5), round(y, 5)] for x, y in r.geometry.coords]
+        coords = [[round(x, 4), round(y, 4)] for x, y in r.geometry.coords]  # 4 dp ~ 11 m, below source-map accuracy
         feats.append({"type": "Feature", "geometry": {"type": "LineString", "coordinates": coords},
                       "properties": {"id": r.segment_id, "y": int(r.in_op_by), "a": None if pd.isna(r.opened_after) else int(r.opened_after),
                                      "rr": r.rr_name or "", "km": round(float(r.length_km), 2), "fid": int(r.FID)}})
@@ -54,7 +54,7 @@ def geo_exports():
     for _, r in m.iterrows():
         geoms = [r.geometry] if r.geometry.geom_type == "LineString" else list(r.geometry.geoms)
         for gg in geoms:
-            mf.append({"type": "Feature", "geometry": {"type": "LineString", "coordinates": [[round(x, 5), round(y, 5)] for x, y in gg.coords]},
+            mf.append({"type": "Feature", "geometry": {"type": "LineString", "coordinates": [[round(x, 4), round(y, 4)] for x, y in gg.coords]},
                        "properties": {"n": r.FULLNAME or "", "km": round(float(r.length_km), 2)}})
     (WEB / "rail_tiger2020.geojson").write_text(json.dumps({"type": "FeatureCollection", "features": mf}, separators=(",", ":")))
     co = gpd.read_parquet(PROCESSED / "texas_counties.parquet")

@@ -16,7 +16,12 @@ export function readJson<T>(file: string): T {
 }
 
 export const getTowns = () => readJson<Town[]>("towns.json");
-export const getTown = (id: string) => getTowns().find((t) => t.id === id);
+let townIndex: Map<string, Town> | null = null;
+/** O(1) lookup; generateStaticParams builds ~1,000 pages, so a linear find per page was quadratic. */
+export const getTown = (id: string) => {
+  if (!townIndex) townIndex = new Map(getTowns().map((t) => [t.id, t]));
+  return townIndex.get(id);
+};
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const getSummary = () => readJson<any>("summary.json");
 // eslint-disable-next-line @typescript-eslint/no-explicit-any

@@ -6,7 +6,6 @@ import "@fontsource/barlow-condensed/700.css";
 import "@fontsource/barlow/400.css";
 import "@fontsource/barlow/500.css";
 import "@fontsource/barlow/600.css";
-import "maplibre-gl/dist/maplibre-gl.css";
 import "./globals.css";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";

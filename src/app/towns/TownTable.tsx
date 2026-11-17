@@ -42,7 +42,7 @@ export default function TownTable({ rows }: { rows: R[] }) {
           <thead className="border-b border-ink"><tr>{th("name", "Town")}<th className="py-2 px-2 text-left font-medium">County</th>{th("firstServed", "Rail by")}{th("pop1940", "1940")}{th("pop2020", "2020")}{th("g4020", "Change 1940–2020")}</tr></thead>
           <tbody>
             {list.slice(0, n).map((t) => (
-              <tr key={t.id} className="border-t border-rule hover:bg-sand/60">
+              <tr key={t.id} className="border-t border-rule hover:bg-sand/60" style={{ contentVisibility: "auto", containIntrinsicSize: "auto 34px" }}>
                 <td className="py-1.5 px-2"><Link className="link" href={`/towns/${t.id}`}>{t.name}</Link>{!t.persisted && <span className="ml-1 text-[10px] text-rail" title="Not a census place in 2020">●</span>}</td>
                 <td className="px-2">{t.county}</td>
                 <td className="px-2 num">{t.firstServed ?? "—"}</td>

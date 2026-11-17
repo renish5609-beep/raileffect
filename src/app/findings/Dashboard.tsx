@@ -30,8 +30,10 @@ export default function Dashboard({ s, m, idx }: { s: any; m: any; idx: any[] })
   const [size, setSize] = useState("");
   const f = useMemo(() => idx.filter((t) => (!zone || t.zone === zone) && (!era || t.era === era) &&
     (!size || (t.pop1940 != null && (size === "small" ? t.pop1940 < 2500 : size === "mid" ? t.pop1940 >= 2500 && t.pop1940 < 10000 : t.pop1940 >= 10000)))), [idx, zone, era, size]);
-  const gs = f.filter((t) => t.g4020 != null && t.served1911).map((t) => t.g4020);
-  const gn = f.filter((t) => t.g4020 != null && !t.served1911).map((t) => t.g4020);
+  const gs = useMemo(() => f.filter((t) => t.g4020 != null && t.served1911).map((t) => t.g4020 as number), [f]);
+  const gn = useMemo(() => f.filter((t) => t.g4020 != null && !t.served1911).map((t) => t.g4020 as number), [f]);
+  const binsS = useMemo(() => binc(gs), [gs]);
+  const binsN = useMemo(() => binc(gn), [gn]);
   const b1 = s.headline.b1_served1911;
   const years = Object.keys(s.observations_by_year_quality);
   const eras = ["by 1872", "1873-1881", "1882-1889", "1890-1911", "not served by 1911"];
@@ -65,11 +67,11 @@ export default function Dashboard({ s, m, idx }: { s: any; m: any; idx: any[] })
         <Card kicker="Distribution" title="Population change 1940–2020 (log points)">
           <Chart label="Histogram of growth by rail access" height={300} data={[
             // two distributions as step lines (no overlapping translucent blocks); a faint wash for the larger group
-            { type: "scatter", mode: "lines", line: { shape: "hvh", width: 2, color: COLORS.served }, fill: "tozeroy", fillcolor: "rgba(163,38,42,0.08)", x: BINS.slice(0, -1).map((b) => b + 0.125), y: binc(gs).map((c) => c / Math.max(1, gs.length)), name: `Track within 2 km by 1911 (n=${gs.length})`, hovertemplate: "%{x:.2f}: %{y:.0%} of served towns<extra></extra>" } as any,
-            { type: "scatter", mode: "lines", line: { shape: "hvh", width: 2, color: COLORS.notServed }, x: BINS.slice(0, -1).map((b) => b + 0.125), y: binc(gn).map((c) => c / Math.max(1, gn.length)), name: `No track (n=${gn.length})`, hovertemplate: "%{x:.2f}: %{y:.0%} of unserved towns<extra></extra>" } as any,
+            { type: "scatter", mode: "lines", line: { shape: "hvh", width: 2, color: COLORS.served }, fill: "tozeroy", fillcolor: "rgba(163,38,42,0.08)", x: BINS.slice(0, -1).map((b) => b + 0.125), y: binsS.map((c) => c / Math.max(1, gs.length)), name: `Track within 2 km by 1911 (n=${gs.length})`, hovertemplate: "%{x:.2f}: %{y:.0%} of served towns<extra></extra>" } as any,
+            { type: "scatter", mode: "lines", line: { shape: "hvh", width: 2, color: COLORS.notServed }, x: BINS.slice(0, -1).map((b) => b + 0.125), y: binsN.map((c) => c / Math.max(1, gn.length)), name: `No track (n=${gn.length})`, hovertemplate: "%{x:.2f}: %{y:.0%} of unserved towns<extra></extra>" } as any,
           ]} layout={{ hovermode: "x unified", yaxis: { title: { text: "Share of group" }, tickformat: ".0%" }, xaxis: { title: { text: "ln(pop 2020 / pop 1940)" } }}} />
           <p className="text-xs text-muted">Values below −2.5 or above 4 are placed in the end bins.</p>
-          <DataTable caption="Share of towns in each growth bin" head={["Bin start", "Served", "Not served"]} rows={BINS.slice(0, -1).map((b, i) => [b.toFixed(2), `${Math.round((100 * binc(gs)[i]) / Math.max(1, gs.length))}%`, `${Math.round((100 * binc(gn)[i]) / Math.max(1, gn.length))}%`])} />
+          <DataTable caption="Share of towns in each growth bin" head={["Bin start", "Served", "Not served"]} rows={BINS.slice(0, -1).map((b, i) => [b.toFixed(2), `${Math.round((100 * binsS[i]) / Math.max(1, gs.length))}%`, `${Math.round((100 * binsN[i]) / Math.max(1, gn.length))}%`])} />
           <p className="text-sm">Median: served <span className="num">{Number.isNaN(median(gs)) ? "—" : median(gs).toFixed(2)}</span>, not served <span className="num">{Number.isNaN(median(gn)) ? "—" : median(gn).toFixed(2)}</span>. Mean: <span className="num">{Number.isNaN(mean(gs)) ? "—" : mean(gs).toFixed(2)}</span> vs <span className="num">{Number.isNaN(mean(gn)) ? "—" : mean(gn).toFixed(2)}</span>. Declined: {gs.length ? Math.round(100 * gs.filter((x) => x < 0).length / gs.length) : "—"}% vs {gn.length ? Math.round(100 * gn.filter((x) => x < 0).length / gn.length) : "—"}%.</p>
         </Card>
         <Card kicker="Network growth" title="Texas track recorded by benchmark">

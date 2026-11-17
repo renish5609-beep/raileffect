@@ -1,4 +1,5 @@
 "use client";
+import "maplibre-gl/dist/maplibre-gl.css";
 import maplibregl, { type StyleSpecification, type MapGeoJSONFeature } from "maplibre-gl";
 import { useEffect, useRef, useState } from "react";
 
