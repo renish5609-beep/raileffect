@@ -1,0 +1,1267 @@
+{
+ "generated_by": "pipeline/fit_models.py",
+ "served_threshold_km": 2.0,
+ "model_a": {
+  "title": "Descriptive comparison of long-run growth by historical rail access",
+  "outcomes": {
+   "g40_20": {
+    "label": "ln(pop 2020 / pop 1940)",
+    "by_served1911": [
+     {
+      "group": "0",
+      "n": 76,
+      "mean": 0.4204,
+      "mean_ci": [
+       0.2171,
+       0.6384
+      ],
+      "median": 0.3523,
+      "median_ci": [
+       0.0262,
+       0.7833
+      ],
+      "share_declined": 0.3684,
+      "p10": -0.7176,
+      "p90": 1.4079
+     },
+     {
+      "group": "1",
+      "n": 379,
+      "mean": 0.7558,
+      "mean_ci": [
+       0.6284,
+       0.8904
+      ],
+      "median": 0.5106,
+      "median_ci": [
+       0.4031,
+       0.6598
+      ],
+      "share_declined": 0.2612,
+      "p10": -0.559,
+      "p90": 2.4077
+     }
+    ],
+    "by_era": [
+     {
+      "group": "1873-1881",
+      "n": 61,
+      "mean": 0.584,
+      "mean_ci": [
+       0.3384,
+       0.8623
+      ],
+      "median": 0.4028,
+      "median_ci": [
+       0.1586,
+       0.6121
+      ],
+      "share_declined": 0.2623,
+      "p10": -0.2671,
+      "p90": 1.7133
+     },
+     {
+      "group": "1882-1889",
+      "n": 118,
+      "mean": 0.7583,
+      "mean_ci": [
+       0.5051,
+       1.0405
+      ],
+      "median": 0.522,
+      "median_ci": [
+       0.2877,
+       0.7581
+      ],
+      "share_declined": 0.2797,
+      "p10": -0.7397,
+      "p90": 2.4448
+     },
+     {
+      "group": "1890-1911",
+      "n": 111,
+      "mean": 0.5707,
+      "mean_ci": [
+       0.3556,
+       0.8137
+      ],
+      "median": 0.3623,
+      "median_ci": [
+       0.1635,
+       0.7365
+      ],
+      "share_declined": 0.3243,
+      "p10": -0.6855,
+      "p90": 1.7638
+     },
+     {
+      "group": "by 1872",
+      "n": 89,
+      "mean": 1.1011,
+      "mean_ci": [
+       0.8187,
+       1.4045
+      ],
+      "median": 0.7235,
+      "median_ci": [
+       0.4828,
+       0.9131
+      ],
+      "share_declined": 0.1573,
+      "p10": -0.3593,
+      "p90": 2.972
+     },
+     {
+      "group": "not served by 1911",
+      "n": 76,
+      "mean": 0.4204,
+      "mean_ci": [
+       0.2042,
+       0.6524
+      ],
+      "median": 0.3523,
+      "median_ci": [
+       0.0223,
+       0.8015
+      ],
+      "share_declined": 0.3684,
+      "p10": -0.7176,
+      "p90": 1.4079
+     }
+    ],
+    "by_zone_served": [
+     {
+      "group": "Central / not served",
+      "n": 14,
+      "mean": 0.7417,
+      "mean_ci": [
+       0.2775,
+       1.18
+      ],
+      "median": 1.0125,
+      "median_ci": [
+       0.1186,
+       1.2261
+      ],
+      "share_declined": 0.2143,
+      "p10": -0.5038,
+      "p90": 1.3662
+     },
+     {
+      "group": "Central / served",
+      "n": 199,
+      "mean": 1.1107,
+      "mean_ci": [
+       0.918,
+       1.3279
+      ],
+      "median": 0.8178,
+      "median_ci": [
+       0.5822,
+       0.9131
+      ],
+      "share_declined": 0.1809,
+      "p10": -0.3486,
+      "p90": 3.0316
+     },
+     {
+      "group": "East / not served",
+      "n": 10,
+      "mean": 1.0302,
+      "mean_ci": [
+       0.339,
+       1.8502
+      ],
+      "median": 0.6068,
+      "median_ci": [
+       0.1645,
+       1.8169
+      ],
+      "share_declined": 0.1,
+      "p10": -0.0563,
+      "p90": 2.1141
+     },
+     {
+      "group": "East / served",
+      "n": 77,
+      "mean": 0.6463,
+      "mean_ci": [
+       0.4612,
+       0.8329
+      ],
+      "median": 0.5507,
+      "median_ci": [
+       0.4233,
+       0.7195
+      ],
+      "share_declined": 0.1818,
+      "p10": -0.3137,
+      "p90": 1.8188
+     },
+     {
+      "group": "West / not served",
+      "n": 52,
+      "mean": 0.2167,
+      "mean_ci": [
+       -0.0203,
+       0.4574
+      ],
+      "median": 0.0456,
+      "median_ci": [
+       -0.1079,
+       0.4453
+      ],
+      "share_declined": 0.4615,
+      "p10": -0.7919,
+      "p90": 1.3126
+     },
+     {
+      "group": "West / served",
+      "n": 103,
+      "mean": 0.1519,
+      "mean_ci": [
+       -0.0629,
+       0.391
+      ],
+      "median": 0.0231,
+      "median_ci": [
+       -0.202,
+       0.209
+      ],
+      "share_declined": 0.4757,
+      "p10": -0.9286,
+      "p90": 1.3577
+     }
+    ]
+   },
+   "g40_60": {
+    "label": "ln(pop 1960 / pop 1940)",
+    "by_served1911": [
+     {
+      "group": "0",
+      "n": 64,
+      "mean": 0.4355,
+      "mean_ci": [
+       0.2748,
+       0.6168
+      ],
+      "median": 0.2677,
+      "median_ci": [
+       0.0658,
+       0.4733
+      ],
+      "share_declined": 0.2969,
+      "p10": -0.3137,
+      "p90": 1.2132
+     },
+     {
+      "group": "1",
+      "n": 332,
+      "mean": 0.3174,
+      "mean_ci": [
+       0.2453,
+       0.3916
+      ],
+      "median": 0.2243,
+      "median_ci": [
+       0.1863,
+       0.2871
+      ],
+      "share_declined": 0.2982,
+      "p10": -0.2626,
+      "p90": 0.8598
+     }
+    ],
+    "by_era": [
+     {
+      "group": "1873-1881",
+      "n": 56,
+      "mean": 0.2121,
+      "mean_ci": [
+       0.0692,
+       0.3705
+      ],
+      "median": 0.1468,
+      "median_ci": [
+       -0.0079,
+       0.3054
+      ],
+      "share_declined": 0.375,
+      "p10": -0.3545,
+      "p90": 0.8444
+     },
+     {
+      "group": "1882-1889",
+      "n": 104,
+      "mean": 0.2866,
+      "mean_ci": [
+       0.1422,
+       0.4691
+      ],
+      "median": 0.1863,
+      "median_ci": [
+       0.1032,
+       0.2414
+      ],
+      "share_declined": 0.3365,
+      "p10": -0.2601,
+      "p90": 0.6895
+     },
+     {
+      "group": "1890-1911",
+      "n": 93,
+      "mean": 0.3497,
+      "mean_ci": [
+       0.2544,
+       0.4491
+      ],
+      "median": 0.3178,
+      "median_ci": [
+       0.2061,
+       0.4502
+      ],
+      "share_declined": 0.2473,
+      "p10": -0.1895,
+      "p90": 0.9547
+     },
+     {
+      "group": "by 1872",
+      "n": 79,
+      "mean": 0.3946,
+      "mean_ci": [
+       0.2653,
+       0.5413
+      ],
+      "median": 0.2894,
+      "median_ci": [
+       0.2004,
+       0.3938
+      ],
+      "share_declined": 0.2532,
+      "p10": -0.2245,
+      "p90": 1.062
+     },
+     {
+      "group": "not served by 1911",
+      "n": 64,
+      "mean": 0.4355,
+      "mean_ci": [
+       0.2629,
+       0.615
+      ],
+      "median": 0.2677,
+      "median_ci": [
+       0.0644,
+       0.4875
+      ],
+      "share_declined": 0.2969,
+      "p10": -0.3137,
+      "p90": 1.2132
+     }
+    ]
+   }
+  },
+  "persistence": [
+   {
+    "group": 0,
+    "n": 81,
+    "persisted_2020_share": 0.963,
+    "ci": [
+     0.9136,
+     1.0
+    ]
+   },
+   {
+    "group": 1,
+    "n": 433,
+    "persisted_2020_share": 0.9677,
+    "ci": [
+     0.9515,
+     0.9838
+    ]
+   }
+  ],
+  "diff_mean_g40_20": {
+   "served_minus_not": 0.3354,
+   "ci": [
+    0.0787,
+    0.5925
+   ],
+   "n_served": 379,
+   "n_not": 76
+  }
+ },
+ "model_b": {
+  "title": "Multivariate regression",
+  "models": [
+   {
+    "label": "B1: growth 1940-2020 on rail access by 1911",
+    "formula": "g40_20 ~ served1911 + ln_pop1940 + x + y + I(x**2) + I(y**2) + x:y + C(zone)",
+    "n": 455,
+    "r2": 0.1227,
+    "adj_r2": 0.1049,
+    "aic": 1477.1,
+    "terms": [
+     {
+      "term": "served1911",
+      "coef": 0.1542,
+      "se_hc3": 0.1845,
+      "ci_low": -0.2075,
+      "ci_high": 0.5159,
+      "p_hc3": 0.4033,
+      "se_cluster": 0.1764,
+      "ci_low_cluster": -0.1915,
+      "ci_high_cluster": 0.4999,
+      "p_cluster": 0.3819
+     },
+     {
+      "term": "ln_pop1940",
+      "coef": -0.0242,
+      "se_hc3": 0.1141,
+      "ci_low": -0.2479,
+      "ci_high": 0.1995,
+      "p_hc3": 0.832,
+      "se_cluster": 0.1038,
+      "ci_low_cluster": -0.2277,
+      "ci_high_cluster": 0.1792,
+      "p_cluster": 0.8155
+     },
+     {
+      "term": "x",
+      "coef": -0.0091,
+      "se_hc3": 0.073,
+      "ci_low": -0.1521,
+      "ci_high": 0.134,
+      "p_hc3": 0.9013,
+      "se_cluster": 0.0978,
+      "ci_low_cluster": -0.2007,
+      "ci_high_cluster": 0.1826,
+      "p_cluster": 0.9262
+     },
+     {
+      "term": "y",
+      "coef": -0.0384,
+      "se_hc3": 0.0399,
+      "ci_low": -0.1167,
+      "ci_high": 0.0399,
+      "p_hc3": 0.336,
+      "se_cluster": 0.0551,
+      "ci_low_cluster": -0.1464,
+      "ci_high_cluster": 0.0696,
+      "p_cluster": 0.4855
+     },
+     {
+      "term": "I(x ** 2)",
+      "coef": 0.0241,
+      "se_hc3": 0.0177,
+      "ci_low": -0.0106,
+      "ci_high": 0.0587,
+      "p_hc3": 0.1731,
+      "se_cluster": 0.0184,
+      "ci_low_cluster": -0.0121,
+      "ci_high_cluster": 0.0602,
+      "p_cluster": 0.1917
+     },
+     {
+      "term": "I(y ** 2)",
+      "coef": 0.008,
+      "se_hc3": 0.0092,
+      "ci_low": -0.01,
+      "ci_high": 0.0261,
+      "p_hc3": 0.383,
+      "se_cluster": 0.0123,
+      "ci_low_cluster": -0.0161,
+      "ci_high_cluster": 0.0321,
+      "p_cluster": 0.5141
+     },
+     {
+      "term": "x:y",
+      "coef": -0.0247,
+      "se_hc3": 0.0184,
+      "ci_low": -0.0607,
+      "ci_high": 0.0112,
+      "p_hc3": 0.1777,
+      "se_cluster": 0.0233,
+      "ci_low_cluster": -0.0705,
+      "ci_high_cluster": 0.021,
+      "p_cluster": 0.289
+     }
+    ],
+    "diagnostics": {
+     "breusch_pagan_p": 0.0,
+     "jarque_bera_p": 0.0,
+     "max_cooks_distance": 0.3128,
+     "n_cooks_gt_4_over_n": 18,
+     "vif": {
+      "served1911": 1.27,
+      "ln_pop1940": 1.1,
+      "x": 10.79,
+      "y": 1.68,
+      "I(x ** 2)": 3.08,
+      "I(y ** 2)": 1.52,
+      "x:y": 1.91
+     },
+     "residual_sd": 1.1999
+    }
+   },
+   {
+    "label": "B2: B1 + distance to modern Interstate",
+    "formula": "g40_20 ~ served1911 + ln_dist_int + ln_pop1940 + x + y + I(x**2) + I(y**2) + x:y + C(zone)",
+    "n": 455,
+    "r2": 0.1872,
+    "adj_r2": 0.1689,
+    "aic": 1444.3,
+    "terms": [
+     {
+      "term": "served1911",
+      "coef": 0.0805,
+      "se_hc3": 0.1793,
+      "ci_low": -0.271,
+      "ci_high": 0.432,
+      "p_hc3": 0.6535,
+      "se_cluster": 0.1685,
+      "ci_low_cluster": -0.2497,
+      "ci_high_cluster": 0.4107,
+      "p_cluster": 0.6327
+     },
+     {
+      "term": "ln_dist_int",
+      "coef": -0.2622,
+      "se_hc3": 0.0489,
+      "ci_low": -0.358,
+      "ci_high": -0.1664,
+      "p_hc3": 0.0,
+      "se_cluster": 0.059,
+      "ci_low_cluster": -0.3778,
+      "ci_high_cluster": -0.1466,
+      "p_cluster": 0.0
+     },
+     {
+      "term": "ln_pop1940",
+      "coef": -0.0598,
+      "se_hc3": 0.1135,
+      "ci_low": -0.2823,
+      "ci_high": 0.1628,
+      "p_hc3": 0.5986,
+      "se_cluster": 0.1043,
+      "ci_low_cluster": -0.2642,
+      "ci_high_cluster": 0.1446,
+      "p_cluster": 0.5666
+     },
+     {
+      "term": "x",
+      "coef": 0.0364,
+      "se_hc3": 0.0704,
+      "ci_low": -0.1016,
+      "ci_high": 0.1743,
+      "p_hc3": 0.6054,
+      "se_cluster": 0.0967,
+      "ci_low_cluster": -0.1531,
+      "ci_high_cluster": 0.2258,
+      "p_cluster": 0.7068
+     },
+     {
+      "term": "y",
+      "coef": -0.027,
+      "se_hc3": 0.0385,
+      "ci_low": -0.1024,
+      "ci_high": 0.0484,
+      "p_hc3": 0.4827,
+      "se_cluster": 0.0512,
+      "ci_low_cluster": -0.1274,
+      "ci_high_cluster": 0.0734,
+      "p_cluster": 0.5979
+     },
+     {
+      "term": "I(x ** 2)",
+      "coef": 0.0255,
+      "se_hc3": 0.0169,
+      "ci_low": -0.0075,
+      "ci_high": 0.0586,
+      "p_hc3": 0.1304,
+      "se_cluster": 0.018,
+      "ci_low_cluster": -0.0098,
+      "ci_high_cluster": 0.0608,
+      "p_cluster": 0.1563
+     },
+     {
+      "term": "I(y ** 2)",
+      "coef": 0.0053,
+      "se_hc3": 0.0089,
+      "ci_low": -0.0121,
+      "ci_high": 0.0228,
+      "p_hc3": 0.5489,
+      "se_cluster": 0.0108,
+      "ci_low_cluster": -0.0158,
+      "ci_high_cluster": 0.0265,
+      "p_cluster": 0.6213
+     },
+     {
+      "term": "x:y",
+      "coef": -0.0334,
+      "se_hc3": 0.0176,
+      "ci_low": -0.0679,
+      "ci_high": 0.001,
+      "p_hc3": 0.0569,
+      "se_cluster": 0.0214,
+      "ci_low_cluster": -0.0754,
+      "ci_high_cluster": 0.0085,
+      "p_cluster": 0.1182
+     }
+    ],
+    "diagnostics": {
+     "breusch_pagan_p": 0.0,
+     "jarque_bera_p": 0.0,
+     "max_cooks_distance": 0.2982,
+     "n_cooks_gt_4_over_n": 19,
+     "vif": {
+      "served1911": 1.27,
+      "ln_dist_int": 1.13,
+      "ln_pop1940": 1.12,
+      "x": 10.89,
+      "y": 1.68,
+      "I(x ** 2)": 3.08,
+      "I(y ** 2)": 1.52,
+      "x:y": 1.92
+     },
+     "residual_sd": 1.1549
+    }
+   },
+   {
+    "label": "B3: B2 + rail presence in 2020 (retention)",
+    "formula": "g40_20 ~ served1911 + served2020 + ln_dist_int + ln_pop1940 + x + y + I(x**2) + I(y**2) + x:y + C(zone)",
+    "n": 455,
+    "r2": 0.2135,
+    "adj_r2": 0.1939,
+    "aic": 1431.3,
+    "terms": [
+     {
+      "term": "served1911",
+      "coef": -0.1133,
+      "se_hc3": 0.1819,
+      "ci_low": -0.4698,
+      "ci_high": 0.2433,
+      "p_hc3": 0.5335,
+      "se_cluster": 0.1643,
+      "ci_low_cluster": -0.4353,
+      "ci_high_cluster": 0.2087,
+      "p_cluster": 0.4905
+     },
+     {
+      "term": "served2020",
+      "coef": 0.5028,
+      "se_hc3": 0.1242,
+      "ci_low": 0.2594,
+      "ci_high": 0.7462,
+      "p_hc3": 0.0001,
+      "se_cluster": 0.1175,
+      "ci_low_cluster": 0.2725,
+      "ci_high_cluster": 0.7331,
+      "p_cluster": 0.0
+     },
+     {
+      "term": "ln_dist_int",
+      "coef": -0.2243,
+      "se_hc3": 0.0486,
+      "ci_low": -0.3196,
+      "ci_high": -0.129,
+      "p_hc3": 0.0,
+      "se_cluster": 0.0596,
+      "ci_low_cluster": -0.3412,
+      "ci_high_cluster": -0.1074,
+      "p_cluster": 0.0002
+     },
+     {
+      "term": "ln_pop1940",
+      "coef": -0.0939,
+      "se_hc3": 0.114,
+      "ci_low": -0.3175,
+      "ci_high": 0.1296,
+      "p_hc3": 0.4101,
+      "se_cluster": 0.1046,
+      "ci_low_cluster": -0.299,
+      "ci_high_cluster": 0.1111,
+      "p_cluster": 0.3693
+     },
+     {
+      "term": "x",
+      "coef": 0.0217,
+      "se_hc3": 0.0698,
+      "ci_low": -0.1151,
+      "ci_high": 0.1585,
+      "p_hc3": 0.7557,
+      "se_cluster": 0.0956,
+      "ci_low_cluster": -0.1657,
+      "ci_high_cluster": 0.2092,
+      "p_cluster": 0.8204
+     },
+     {
+      "term": "y",
+      "coef": -0.025,
+      "se_hc3": 0.0374,
+      "ci_low": -0.0983,
+      "ci_high": 0.0484,
+      "p_hc3": 0.5047,
+      "se_cluster": 0.0499,
+      "ci_low_cluster": -0.1228,
+      "ci_high_cluster": 0.0729,
+      "p_cluster": 0.6172
+     },
+     {
+      "term": "I(x ** 2)",
+      "coef": 0.0169,
+      "se_hc3": 0.0171,
+      "ci_low": -0.0167,
+      "ci_high": 0.0504,
+      "p_hc3": 0.3245,
+      "se_cluster": 0.0179,
+      "ci_low_cluster": -0.0182,
+      "ci_high_cluster": 0.0519,
+      "p_cluster": 0.3455
+     },
+     {
+      "term": "I(y ** 2)",
+      "coef": 0.0049,
+      "se_hc3": 0.0087,
+      "ci_low": -0.0122,
+      "ci_high": 0.0219,
+      "p_hc3": 0.5752,
+      "se_cluster": 0.0104,
+      "ci_low_cluster": -0.0155,
+      "ci_high_cluster": 0.0253,
+      "p_cluster": 0.6403
+     },
+     {
+      "term": "x:y",
+      "coef": -0.0255,
+      "se_hc3": 0.0172,
+      "ci_low": -0.0593,
+      "ci_high": 0.0082,
+      "p_hc3": 0.1373,
+      "se_cluster": 0.021,
+      "ci_low_cluster": -0.0667,
+      "ci_high_cluster": 0.0156,
+      "p_cluster": 0.2235
+     }
+    ],
+    "diagnostics": {
+     "breusch_pagan_p": 0.0,
+     "jarque_bera_p": 0.0,
+     "max_cooks_distance": 0.3023,
+     "n_cooks_gt_4_over_n": 18,
+     "vif": {
+      "served1911": 1.39,
+      "served2020": 1.3,
+      "ln_dist_int": 1.19,
+      "ln_pop1940": 1.16,
+      "x": 10.92,
+      "y": 1.68,
+      "I(x ** 2)": 3.16,
+      "I(y ** 2)": 1.52,
+      "x:y": 1.95
+     },
+     "residual_sd": 1.1361
+    }
+   },
+   {
+    "label": "B4: among rail-served towns, network position (1911)",
+    "formula": "g40_20 ~ ln_hub + junction1911 + betweenness_1911 + ln_dist_int + ln_pop1940 + x + y + I(x**2) + I(y**2) + x:y + C(zone)",
+    "n": 354,
+    "r2": 0.2241,
+    "adj_r2": 0.1968,
+    "aic": 1151.2,
+    "terms": [
+     {
+      "term": "ln_hub",
+      "coef": -0.3309,
+      "se_hc3": 0.0855,
+      "ci_low": -0.4983,
+      "ci_high": -0.1634,
+      "p_hc3": 0.0001,
+      "se_cluster": 0.0887,
+      "ci_low_cluster": -0.5047,
+      "ci_high_cluster": -0.157,
+      "p_cluster": 0.0002
+     },
+     {
+      "term": "junction1911",
+      "coef": -0.0852,
+      "se_hc3": 0.1525,
+      "ci_low": -0.3842,
+      "ci_high": 0.2137,
+      "p_hc3": 0.5764,
+      "se_cluster": 0.1655,
+      "ci_low_cluster": -0.4096,
+      "ci_high_cluster": 0.2391,
+      "p_cluster": 0.6066
+     },
+     {
+      "term": "betweenness_1911",
+      "coef": -4.4342,
+      "se_hc3": 1.6161,
+      "ci_low": -7.6017,
+      "ci_high": -1.2667,
+      "p_hc3": 0.0061,
+      "se_cluster": 1.7643,
+      "ci_low_cluster": -7.8921,
+      "ci_high_cluster": -0.9763,
+      "p_cluster": 0.012
+     },
+     {
+      "term": "ln_dist_int",
+      "coef": -0.2313,
+      "se_hc3": 0.0538,
+      "ci_low": -0.3368,
+      "ci_high": -0.1258,
+      "p_hc3": 0.0,
+      "se_cluster": 0.0626,
+      "ci_low_cluster": -0.3539,
+      "ci_high_cluster": -0.1086,
+      "p_cluster": 0.0002
+     },
+     {
+      "term": "ln_pop1940",
+      "coef": -0.1698,
+      "se_hc3": 0.1362,
+      "ci_low": -0.4368,
+      "ci_high": 0.0972,
+      "p_hc3": 0.2126,
+      "se_cluster": 0.1266,
+      "ci_low_cluster": -0.418,
+      "ci_high_cluster": 0.0784,
+      "p_cluster": 0.1799
+     },
+     {
+      "term": "x",
+      "coef": 0.0261,
+      "se_hc3": 0.0885,
+      "ci_low": -0.1473,
+      "ci_high": 0.1995,
+      "p_hc3": 0.7681,
+      "se_cluster": 0.1123,
+      "ci_low_cluster": -0.1941,
+      "ci_high_cluster": 0.2463,
+      "p_cluster": 0.8163
+     },
+     {
+      "term": "y",
+      "coef": -0.0403,
+      "se_hc3": 0.0468,
+      "ci_low": -0.1321,
+      "ci_high": 0.0515,
+      "p_hc3": 0.3896,
+      "se_cluster": 0.0585,
+      "ci_low_cluster": -0.155,
+      "ci_high_cluster": 0.0744,
+      "p_cluster": 0.4911
+     },
+     {
+      "term": "I(x ** 2)",
+      "coef": 0.0202,
+      "se_hc3": 0.023,
+      "ci_low": -0.0249,
+      "ci_high": 0.0653,
+      "p_hc3": 0.3803,
+      "se_cluster": 0.0218,
+      "ci_low_cluster": -0.0225,
+      "ci_high_cluster": 0.0629,
+      "p_cluster": 0.3536
+     },
+     {
+      "term": "I(y ** 2)",
+      "coef": 0.0034,
+      "se_hc3": 0.0108,
+      "ci_low": -0.0178,
+      "ci_high": 0.0245,
+      "p_hc3": 0.7558,
+      "se_cluster": 0.0141,
+      "ci_low_cluster": -0.0244,
+      "ci_high_cluster": 0.0311,
+      "p_cluster": 0.8125
+     },
+     {
+      "term": "x:y",
+      "coef": -0.0476,
+      "se_hc3": 0.0213,
+      "ci_low": -0.0894,
+      "ci_high": -0.0057,
+      "p_hc3": 0.0258,
+      "se_cluster": 0.0241,
+      "ci_low_cluster": -0.0947,
+      "ci_high_cluster": -0.0004,
+      "p_cluster": 0.048
+     }
+    ],
+    "diagnostics": {
+     "breusch_pagan_p": 0.0,
+     "jarque_bera_p": 0.0,
+     "max_cooks_distance": 0.2679,
+     "n_cooks_gt_4_over_n": 13,
+     "vif": {
+      "ln_hub": 2.23,
+      "junction1911": 1.24,
+      "betweenness_1911": 1.31,
+      "ln_dist_int": 1.19,
+      "ln_pop1940": 1.31,
+      "x": 9.03,
+      "y": 1.93,
+      "I(x ** 2)": 2.63,
+      "I(y ** 2)": 1.54,
+      "x:y": 1.6
+     },
+     "residual_sd": 1.1858
+    }
+   },
+   {
+    "label": "B5: growth 1940-1960 on rail access by 1911",
+    "formula": "g40_60 ~ served1911 + ln_pop1940 + x + y + I(x**2) + I(y**2) + x:y + C(zone)",
+    "n": 396,
+    "r2": 0.1202,
+    "adj_r2": 0.0996,
+    "aic": 797.2,
+    "terms": [
+     {
+      "term": "served1911",
+      "coef": -0.0255,
+      "se_hc3": 0.1219,
+      "ci_low": -0.2645,
+      "ci_high": 0.2135,
+      "p_hc3": 0.8346,
+      "se_cluster": 0.1251,
+      "ci_low_cluster": -0.2707,
+      "ci_high_cluster": 0.2198,
+      "p_cluster": 0.8387
+     },
+     {
+      "term": "ln_pop1940",
+      "coef": 0.021,
+      "se_hc3": 0.1067,
+      "ci_low": -0.1881,
+      "ci_high": 0.2301,
+      "p_hc3": 0.8442,
+      "se_cluster": 0.0967,
+      "ci_low_cluster": -0.1687,
+      "ci_high_cluster": 0.2106,
+      "p_cluster": 0.8285
+     },
+     {
+      "term": "x",
+      "coef": -0.0064,
+      "se_hc3": 0.0359,
+      "ci_low": -0.0767,
+      "ci_high": 0.0639,
+      "p_hc3": 0.8583,
+      "se_cluster": 0.0463,
+      "ci_low_cluster": -0.0971,
+      "ci_high_cluster": 0.0843,
+      "p_cluster": 0.89
+     },
+     {
+      "term": "y",
+      "coef": -0.0773,
+      "se_hc3": 0.0306,
+      "ci_low": -0.1372,
+      "ci_high": -0.0173,
+      "p_hc3": 0.0115,
+      "se_cluster": 0.0325,
+      "ci_low_cluster": -0.1411,
+      "ci_high_cluster": -0.0135,
+      "p_cluster": 0.0176
+     },
+     {
+      "term": "I(x ** 2)",
+      "coef": 0.0219,
+      "se_hc3": 0.009,
+      "ci_low": 0.0042,
+      "ci_high": 0.0396,
+      "p_hc3": 0.0154,
+      "se_cluster": 0.0092,
+      "ci_low_cluster": 0.0038,
+      "ci_high_cluster": 0.0399,
+      "p_cluster": 0.0174
+     },
+     {
+      "term": "I(y ** 2)",
+      "coef": 0.0058,
+      "se_hc3": 0.005,
+      "ci_low": -0.0041,
+      "ci_high": 0.0156,
+      "p_hc3": 0.2507,
+      "se_cluster": 0.0052,
+      "ci_low_cluster": -0.0045,
+      "ci_high_cluster": 0.016,
+      "p_cluster": 0.2688
+     },
+     {
+      "term": "x:y",
+      "coef": -0.0329,
+      "se_hc3": 0.0102,
+      "ci_low": -0.0528,
+      "ci_high": -0.013,
+      "p_hc3": 0.0012,
+      "se_cluster": 0.0112,
+      "ci_low_cluster": -0.0548,
+      "ci_high_cluster": -0.011,
+      "p_cluster": 0.0032
+     }
+    ],
+    "diagnostics": {
+     "breusch_pagan_p": 0.0,
+     "jarque_bera_p": 0.0,
+     "max_cooks_distance": 1.4576,
+     "n_cooks_gt_4_over_n": 15,
+     "vif": {
+      "served1911": 1.28,
+      "ln_pop1940": 1.1,
+      "x": 10.54,
+      "y": 1.7,
+      "I(x ** 2)": 2.95,
+      "I(y ** 2)": 1.51,
+      "x:y": 1.85
+     },
+     "residual_sd": 0.6456
+    }
+   }
+  ],
+  "logit": {
+   "label": "B6: logit, persisted as a 2020 census place",
+   "formula": "persist ~ served1911 + ln_pop_base + x + y + C(zone)",
+   "n": 514,
+   "pseudo_r2": 0.0471,
+   "terms": [
+    {
+     "term": "served1911",
+     "coef": -0.0293,
+     "se": 0.6363,
+     "ci_low": -1.2764,
+     "ci_high": 1.2179,
+     "p": 0.9633,
+     "avg_marginal_effect": -0.0009
+    },
+    {
+     "term": "ln_pop_base",
+     "coef": 0.4186,
+     "se": 0.1883,
+     "ci_low": 0.0495,
+     "ci_high": 0.7877,
+     "p": 0.0262,
+     "avg_marginal_effect": 0.0131
+    },
+    {
+     "term": "x",
+     "coef": -0.1712,
+     "se": 0.2645,
+     "ci_low": -0.6896,
+     "ci_high": 0.3473,
+     "p": 0.5176,
+     "avg_marginal_effect": -0.0054
+    },
+    {
+     "term": "y",
+     "coef": 0.1592,
+     "se": 0.1382,
+     "ci_low": -0.1117,
+     "ci_high": 0.4301,
+     "p": 0.2494,
+     "avg_marginal_effect": 0.005
+    }
+   ]
+  },
+  "notes": "OLS with HC3 standard errors; county-clustered SEs reported alongside. Controls: ln 1940 population, quadratic in longitude/latitude, coarse geographic zone (East < -96\u00b0, Central -96\u00b0 to -98.5\u00b0, West). Distance to the 2020 Interstate network is a post-treatment proxy for later transport access and may be endogenous."
+ },
+ "model_c": {
+  "title": "Panel and matched comparison",
+  "panel_1890_1910": {
+   "n_towns": 103,
+   "n_obs": 259,
+   "n_switchers": 6,
+   "always_treated": 95,
+   "never_treated": 2,
+   "coef_rail": 0.2281,
+   "se": 0.2261,
+   "ci": [
+    -0.2151,
+    0.6713
+   ],
+   "p": 0.3131,
+   "switcher_ids": [
+    "comanche-comanche",
+    "cooper-delta",
+    "milford-ellis",
+    "mineral-wells-palo-pinto",
+    "ravenna-fannin",
+    "san-augustine-san-augustine"
+   ],
+   "assessment": "Identifying variation comes only from towns incorporated (and so enumerated as places) before rail arrival. Census place tables record towns only once incorporated, so pre-arrival observations are rare and selected; arrival dates are interval-censored between Atack benchmark maps. The estimate is reported as descriptive, not causal."
+  },
+  "matched_g40_20": {
+   "outcome": "g40_20",
+   "treat": "served1911",
+   "n_treated": 379,
+   "n_control_pool": 76,
+   "att": 0.2672,
+   "ci": [
+    0.1188,
+    0.4023
+   ],
+   "method": "1:1 nearest-neighbour Mahalanobis matching with replacement on ln_pop1940, x, y; bootstrap CI over matched differences (does not account for matching uncertainty)",
+   "balance": {
+    "ln_pop1940": {
+     "treated_mean": 7.457,
+     "control_pool_mean": 6.935
+    },
+    "x": {
+     "treated_mean": 0.114,
+     "control_pool_mean": -1.894
+    },
+    "y": {
+     "treated_mean": 0.046,
+     "control_pool_mean": 0.806
+    }
+   },
+   "median_match_distance": 0.257
+  },
+  "matched_g40_60": {
+   "outcome": "g40_60",
+   "treat": "served1911",
+   "n_treated": 332,
+   "n_control_pool": 64,
+   "att": -0.0696,
+   "ci": [
+    -0.1612,
+    0.0333
+   ],
+   "method": "1:1 nearest-neighbour Mahalanobis matching with replacement on ln_pop1940, x, y; bootstrap CI over matched differences (does not account for matching uncertainty)",
+   "balance": {
+    "ln_pop1940": {
+     "treated_mean": 7.476,
+     "control_pool_mean": 6.952
+    },
+    "x": {
+     "treated_mean": 0.127,
+     "control_pool_mean": -2.056
+    },
+    "y": {
+     "treated_mean": 0.023,
+     "control_pool_mean": 0.821
+    }
+   },
+   "median_match_distance": 0.325
+  }
+ },
+ "robustness": [
+  {
+   "check": "Rail-access threshold 1 km",
+   "n": 455,
+   "coef": -0.0725,
+   "ci_low": -0.3948,
+   "ci_high": 0.2497,
+   "p": 0.6591
+  },
+  {
+   "check": "Rail-access threshold 5 km",
+   "n": 455,
+   "coef": 0.2333,
+   "ci_low": -0.1604,
+   "ci_high": 0.6269,
+   "p": 0.2455
+  },
+  {
+   "check": "Continuous ln(1 + km to 1911 track) instead of binary",
+   "n": 455,
+   "coef": -0.0218,
+   "ci_low": -0.136,
+   "ci_high": 0.0924,
+   "p": 0.7079
+  },
+  {
+   "check": "Drop influential observations (Cook's D > 4/n)",
+   "n": 437,
+   "coef": 0.0514,
+   "ci_low": -0.1517,
+   "ci_high": 0.2546,
+   "p": 0.6197
+  },
+  {
+   "check": "Trim top/bottom 1% of growth",
+   "n": 445,
+   "coef": 0.0449,
+   "ci_low": -0.2028,
+   "ci_high": 0.2925,
+   "p": 0.7225
+  },
+  {
+   "check": "Exclude towns over 50,000 in 1940",
+   "n": 449,
+   "coef": 0.1577,
+   "ci_low": -0.209,
+   "ci_high": 0.5244,
+   "p": 0.3992
+  },
+  {
+   "check": "Zone subsample: East",
+   "n": 87,
+   "coef": -0.0053,
+   "ci_low": -0.8047,
+   "ci_high": 0.7941,
+   "p": 0.9897
+  },
+  {
+   "check": "Zone subsample: Central",
+   "n": 213,
+   "coef": 0.4394,
+   "ci_low": -0.2154,
+   "ci_high": 1.0941,
+   "p": 0.1884
+  },
+  {
+   "check": "Zone subsample: West",
+   "n": 155,
+   "coef": 0.1119,
+   "ci_low": -0.5329,
+   "ci_high": 0.7568,
+   "p": 0.7337
+  },
+  {
+   "check": "Alternative outcome: growth 1960-2020",
+   "n": 391,
+   "coef": 0.0878,
+   "ci_low": -0.0855,
+   "ci_high": 0.261,
+   "p": 0.3209
+  },
+  {
+   "check": "Include single-printing (B) 1940 values",
+   "n": 526,
+   "coef": 0.0799,
+   "ci_low": -0.2561,
+   "ci_high": 0.4158,
+   "p": 0.6413
+  },
+  {
+   "check": "Early access: served by 1889 benchmark",
+   "n": 455,
+   "coef": 0.2437,
+   "ci_low": -0.044,
+   "ci_high": 0.5314,
+   "p": 0.0969
+  }
+ ],
+ "missing_data": {
+  "towns_total": 974,
+  "with_A1940": 467,
+  "served1911_share_with": 0.833,
+  "served1911_share_without": 0.6746,
+  "median_pop2020_with": 2502.0,
+  "median_pop2020_without": 2446.5,
+  "persisted_share_with": 0.9743,
+  "persisted_share_without": 0.9231
+ },
+ "sample": {
+  "towns": 974,
+  "base_A1940": 467,
+  "g40_20_n": 455,
+  "served1911_in_base": 389,
+  "not_served1911_in_base": 78
+ }
+}

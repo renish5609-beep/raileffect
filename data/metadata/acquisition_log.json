@@ -1,0 +1,155 @@
+{
+  "atack_rr_1826_1911::rr1826_1911_texas_bbox.geojson": {
+    "accessed_utc": "2026-11-17T02:01:20+00:00",
+    "bytes": 6020766,
+    "local_path": "data/raw/atack/rr1826_1911_texas_bbox.geojson",
+    "note": "Texas bbox extract, 8145 of 78832 national features",
+    "sha256": "d17ab38e7417877ed02588ce8737d031bd6ca3092da0b06386da8bbc66509b58",
+    "source_id": "atack_rr_1826_1911",
+    "url": "https://services1.arcgis.com/4yjifSiIG17X0gW4/ArcGIS/rest/services/RR1826_1911Modified0509161/FeatureServer/0/query"
+  },
+  "census_1900_T5::1900_volume-1-p8.pdf": {
+    "accessed_utc": "2026-11-17T03:14:02+00:00",
+    "bytes": 11725508,
+    "local_path": "data/raw/census/1900_volume-1-p8.pdf",
+    "note": "Twelfth Census of the United States (1900), Vol. I (Population, Part 1), Table 5: Population of states and territories by minor civil divisions: 1890 and 1900 (Texas section)",
+    "sha256": "1949ef8c04eed0dc74adc0a1f83405eb6bd2cc0eac430e4c633328a759c6e3ce",
+    "source_id": "census_1900_T5",
+    "url": "https://www2.census.gov/library/publications/decennial/1900/volume-1/volume-1-p8.pdf"
+  },
+  "census_1910_T2::1910_volume-3_volume-3-p7.pdf": {
+    "accessed_utc": "2026-11-17T03:15:55+00:00",
+    "bytes": 15687914,
+    "local_path": "data/raw/census/1910_volume-3_volume-3-p7.pdf",
+    "note": "Thirteenth Census of the United States (1910), Vol. III (Population, Nebraska-Wyoming), Texas, Table 2: Population of incorporated places: 1910, 1900, and 1890",
+    "sha256": "ca9bbe84b03d92c3f4b1cd9d8f3d9fac272b1af7ce1b583041e388fcaeba7251",
+    "source_id": "census_1910_T2",
+    "url": "https://www2.census.gov/library/publications/decennial/1910/volume-3/volume-3-p7.pdf"
+  },
+  "census_1940_T5::c1940_ch09.pdf": {
+    "accessed_utc": "2026-11-17T03:16:21+00:00",
+    "bytes": 20653420,
+    "local_path": "data/raw/census/c1940_ch09.pdf",
+    "note": "1940 Census, Vol. I (Number of Inhabitants), Texas, Table 5: Population of incorporated places: 1940 and 1930",
+    "sha256": "0b4aac8d72b9eb47a002acc5dc332dd8688155f329f101a5fc3fe32e83fe7219",
+    "source_id": "census_1940_T5",
+    "url": "https://www2.census.gov/library/publications/decennial/1940/population-volume-1/33973538v1ch09.pdf"
+  },
+  "census_1950_T7::1950_population-volume-1_vol-01-46.pdf": {
+    "accessed_utc": "2026-11-17T03:17:18+00:00",
+    "bytes": 5267026,
+    "local_path": "data/raw/census/1950_population-volume-1_vol-01-46.pdf",
+    "note": "1950 Census, Vol. I (Number of Inhabitants), Texas (chapter 43), Table 7: Population of all incorporated places and of unincorporated places of 1,000 or more: 1950 and 1940",
+    "sha256": "8fdbac7355d796457bc5102d2e8bb02d6e9f761c821826f30160cb7bc97f1ba7",
+    "source_id": "census_1950_T7",
+    "url": "https://www2.census.gov/library/publications/decennial/1950/population-volume-1/vol-01-46.pdf"
+  },
+  "census_1960_T8::33255142v1p45ch02.pdf": {
+    "accessed_utc": "2026-11-17T03:18:10+00:00",
+    "bytes": 9239430,
+    "local_path": "data/raw/census/33255142v1p45ch02.pdf",
+    "note": "1960 Census, Vol. I (Characteristics of the Population), Part 45 Texas, Chapter A, Table 8: Population of all incorporated places and of unincorporated places of 1,000 or more: 1940 to 1960",
+    "sha256": "96ff1d6c16479fe70f3af742a157a9b920e38309f45b25ac5292cdb51277b2ca",
+    "source_id": "census_1960_T8",
+    "url": "https://www2.census.gov/library/publications/decennial/1960/population-volume-1/33255142v1p45ch02.pdf"
+  },
+  "census_1970_T6::00496492v1p45s1ch02.pdf": {
+    "accessed_utc": "2026-11-17T03:22:50+00:00",
+    "bytes": 12384244,
+    "local_path": "data/raw/census/00496492v1p45s1ch02.pdf",
+    "note": "1970 Census of Population, Vol. I (Characteristics of the Population), Part 45 Texas, Section 1, Chapter A, Table 6: Population of places: 1970 and 1960",
+    "sha256": "21cc97e2f724667f5ef55287f9e754addf8477873d2d7a6279b7d925c2140917",
+    "source_id": "census_1970_T6",
+    "url": "https://www2.census.gov/library/publications/decennial/1970/population-volume-1/00496492v1p45s1ch02.pdf"
+  },
+  "census_intercensal_2000_2010_places::sub-est00int.csv": {
+    "accessed_utc": "2026-11-17T02:18:01+00:00",
+    "bytes": 9015719,
+    "local_path": "data/raw/census_api/sub-est00int.csv",
+    "note": "Intercensal estimates file; CENSUS2010POP column = official 2010 census count",
+    "sha256": "401fe5599b9dbbba53baefad5b2e9736b87026e1756d40db72d747107e3fda6c",
+    "source_id": "census_intercensal_2000_2010_places",
+    "url": "https://www2.census.gov/programs-surveys/popest/datasets/2000-2010/intercensal/cities/sub-est00int.csv"
+  },
+  "census_pl_2020::tx2020.pl.zip": {
+    "accessed_utc": "2026-11-17T02:18:01+00:00",
+    "bytes": 99593751,
+    "local_path": "data/raw/census_api/tx2020.pl.zip",
+    "note": "2020 Census Redistricting Data (P.L. 94-171), Texas",
+    "sha256": "6fee8ca5759eb4942db25a59b8cbd3439ad4188279fccff87dac70a89ceca6ff",
+    "source_id": "census_pl_2020",
+    "url": "https://www2.census.gov/programs-surveys/decennial/2020/data/01-Redistricting_File--PL_94-171/Texas/tx2020.pl.zip"
+  },
+  "census_tiger_2020::2020_Gaz_counties_national.zip": {
+    "accessed_utc": "2026-11-17T02:06:16+00:00",
+    "bytes": 141524,
+    "local_path": "data/raw/tiger/2020_Gaz_counties_national.zip",
+    "note": "",
+    "sha256": "02ef546e4c4f9c032c19616eabb9526caa016f778f41ede3b8c9755dacce20ef",
+    "source_id": "census_tiger_2020",
+    "url": "https://www2.census.gov/geo/docs/maps-data/data/gazetteer/2020_Gazetteer/2020_Gaz_counties_national.zip"
+  },
+  "census_tiger_2020::2020_Gaz_place_national.zip": {
+    "accessed_utc": "2026-11-17T02:06:16+00:00",
+    "bytes": 1206088,
+    "local_path": "data/raw/tiger/2020_Gaz_place_national.zip",
+    "note": "",
+    "sha256": "6e5745b3e1adf7a1e024a988301d484697e2a0f25b3cf10114eef676f09d5c18",
+    "source_id": "census_tiger_2020",
+    "url": "https://www2.census.gov/geo/docs/maps-data/data/gazetteer/2020_Gazetteer/2020_Gaz_place_national.zip"
+  },
+  "census_tiger_2020::cb_2020_48_place_500k.zip": {
+    "accessed_utc": "2026-11-17T02:06:16+00:00",
+    "bytes": 1791371,
+    "local_path": "data/raw/tiger/cb_2020_48_place_500k.zip",
+    "note": "",
+    "sha256": "ab336ae6b1e035e0eeb02e61b8356a96f33ffba041daebddc7dd36fb85697950",
+    "source_id": "census_tiger_2020",
+    "url": "https://www2.census.gov/geo/tiger/GENZ2020/shp/cb_2020_48_place_500k.zip"
+  },
+  "census_tiger_2020::cb_2020_us_county_500k.zip": {
+    "accessed_utc": "2026-11-17T02:06:16+00:00",
+    "bytes": 12587934,
+    "local_path": "data/raw/tiger/cb_2020_us_county_500k.zip",
+    "note": "",
+    "sha256": "1a45c87a5a0c322514c9d5c9ebcba5eb9df313bd38962f6db56107ba0ccacc6f",
+    "source_id": "census_tiger_2020",
+    "url": "https://www2.census.gov/geo/tiger/GENZ2020/shp/cb_2020_us_county_500k.zip"
+  },
+  "census_tiger_2020::cb_2020_us_state_500k.zip": {
+    "accessed_utc": "2026-11-17T02:06:16+00:00",
+    "bytes": 3548589,
+    "local_path": "data/raw/tiger/cb_2020_us_state_500k.zip",
+    "note": "",
+    "sha256": "dcc877984a3e4d59c1ee8d068b6681517c545e0c1827b7e78a7c2c7cbb167da6",
+    "source_id": "census_tiger_2020",
+    "url": "https://www2.census.gov/geo/tiger/GENZ2020/shp/cb_2020_us_state_500k.zip"
+  },
+  "census_tiger_2020::tl_2020_us_primaryroads.zip": {
+    "accessed_utc": "2026-11-17T03:29:19+00:00",
+    "bytes": 38952745,
+    "local_path": "data/raw/tiger/tl_2020_us_primaryroads.zip",
+    "note": "TIGER/Line 2020 primary roads (Interstates: RTTYP='I')",
+    "sha256": "30ba1c46cc5a40305a8896a057f4f14dee7aec08f7dacea3e0fb68fec1cc172f",
+    "source_id": "census_tiger_2020",
+    "url": "https://www2.census.gov/geo/tiger/TIGER2020/PRIMARYROADS/tl_2020_us_primaryroads.zip"
+  },
+  "census_tiger_2020::tl_2020_us_rails.zip": {
+    "accessed_utc": "2026-11-17T02:06:16+00:00",
+    "bytes": 34755108,
+    "local_path": "data/raw/tiger/tl_2020_us_rails.zip",
+    "note": "",
+    "sha256": "86f1fed01c866ee6e2595e8f0f43288c11e45200e487841227ede8422b874521",
+    "source_id": "census_tiger_2020",
+    "url": "https://www2.census.gov/geo/tiger/TIGER2020/RAILS/tl_2020_us_rails.zip"
+  },
+  "usgs_gnis_tx::DomesticNames_TX_Text.zip": {
+    "accessed_utc": "2026-11-17T02:18:47+00:00",
+    "bytes": 2175513,
+    "local_path": "data/raw/gnis/DomesticNames_TX_Text.zip",
+    "note": "USGS Geographic Names Information System, Texas domestic names (public domain)",
+    "sha256": "cd0f744706260d53d4580d52c35fa7c4438418df82f400a68cdaad5856dd92ad",
+    "source_id": "usgs_gnis_tx",
+    "url": "https://prd-tnm.s3.amazonaws.com/StagedProducts/GeographicNames/DomesticNames/DomesticNames_TX_Text.zip"
+  }
+}

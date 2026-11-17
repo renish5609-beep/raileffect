@@ -1,0 +1,7 @@
+1950_T7 rows 1554 places 739
+[{"spec": "1950_T7", "page": 28, "status": "ok", "rows": 227}, {"spec": "1950_T7", "page": 29, "status": "ok", "rows": 233}, {"spec": "1950_T7", "page": 30, "status": "ok", "rows": 217}, {"spec": "1950_T7", "page": 31, "status": "ok", "rows": 196}]
+1960_T8 rows 447 places 147
+[{"spec": "1960_T8", "page": 36, "status": "ok", "rows": 213}, {"spec": "1960_T8", "page": 37, "status": "rule_detection_failed", "rows": 0}, {"spec": "1960_T8", "page": 38, "status": "rule_detection_failed", "rows": 0}, {"spec": "1960_T8", "page": 39, "status": "rule_detection_failed", "rows": 0}, {"spec": "1960_T8", "page": 40, "status": "rule_detection_failed", "rows": 0}]
+1970_T6 rows 184 places 92
+[{"spec": "1970_T6", "page": 10, "status": "rule_detection_failed", "rows": 0}, {"spec": "1970_T6", "page": 11, "status": "rule_detection_failed", "rows": 0}, {"spec": "1970_T6", "page": 12, "status": "rule_detection_failed", "rows": 0}, {"spec": "1970_T6", "page": 13, "status": "ok", "rows": 106}, {"spec": "1970_T6", "page": 14, "status": "rule_detection_failed", "rows": 0}, {"spec": "1970_T6", "page": 15, "status": "rule_detection_failed", "rows": 0}, {"spec": "1970_T6", "page": 16, "status": "rule_detection_failed", "rows": 0}]
+ALL_DONE

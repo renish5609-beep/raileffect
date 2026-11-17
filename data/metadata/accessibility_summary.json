@@ -1,0 +1,35 @@
+{
+ "hubs": [
+  "Austin",
+  "Beaumont",
+  "Brownsville",
+  "Cleburne",
+  "Dallas",
+  "Denison",
+  "El Paso",
+  "Fort Worth",
+  "Galveston",
+  "Houston",
+  "Laredo",
+  "Marshall",
+  "Palestine",
+  "Paris",
+  "San Antonio",
+  "Sherman",
+  "Temple",
+  "Tyler",
+  "Waco"
+ ],
+ "1889": {
+  "hub_source_nodes": 38,
+  "nodes": 3634,
+  "edges": 3776,
+  "betweenness_k": 1500
+ },
+ "1911": {
+  "hub_source_nodes": 38,
+  "nodes": 6562,
+  "edges": 6853,
+  "betweenness_k": 1500
+ }
+}

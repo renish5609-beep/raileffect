@@ -1,0 +1,104 @@
+name,county,year,population,source_table,pdf_page,method
+Dallas,Dallas,1910,92104,1910_T2,27.0,visual transcription of the page image (row crop at 300 dpi) during validation
+Dallas,Dallas,1900,42638,1910_T2,27.0,visual transcription of the page image (row crop at 300 dpi) during validation
+San Antonio,Bexar,1910,96614,1910_T2,28.0,visual transcription of the page image (row crop at 300 dpi) during validation
+San Antonio,Bexar,1900,53321,1910_T2,28.0,visual transcription of the page image (row crop at 300 dpi) during validation
+San Antonio,Bexar,1890,37673,1910_T2,28.0,visual transcription of the page image (row crop at 300 dpi) during validation
+Fort Worth,Tarrant,1910,73312,1910_T2,27.0,visual transcription of the page image (row crop at 300 dpi) during validation
+Fort Worth,Tarrant,1900,26688,1910_T2,27.0,visual transcription of the page image (row crop at 300 dpi) during validation
+Fort Worth,Tarrant,1890,23076,1910_T2,27.0,visual transcription of the page image (row crop at 300 dpi) during validation
+Galveston,Galveston,1910,36981,1910_T2,27.0,visual transcription of the page image (row crop at 300 dpi) during validation
+Galveston,Galveston,1900,37789,1910_T2,27.0,visual transcription of the page image (row crop at 300 dpi) during validation
+Galveston,Galveston,1890,29084,1910_T2,27.0,visual transcription of the page image (row crop at 300 dpi) during validation
+Austin,Travis,1910,29860,1910_T2,27.0,visual transcription of the page image (row crop at 300 dpi) during validation
+Austin,Travis,1900,22258,1910_T2,27.0,visual transcription of the page image (row crop at 300 dpi) during validation
+Waco,McLennan,1910,26425,1910_T2,28.0,visual transcription of the page image (row crop at 300 dpi) during validation
+Waco,McLennan,1900,20686,1910_T2,28.0,visual transcription of the page image (row crop at 300 dpi) during validation
+Waco,McLennan,1890,14445,1910_T2,28.0,visual transcription of the page image (row crop at 300 dpi) during validation
+Beaumont,Jefferson,1910,20640,1910_T2,27.0,visual transcription of the page image (row crop at 300 dpi) during validation
+Beaumont,Jefferson,1900,9427,1910_T2,27.0,visual transcription of the page image (row crop at 300 dpi) during validation
+Laredo,Webb,1910,14855,1910_T2,27.0,visual transcription of the page image (row crop at 300 dpi) during validation
+Laredo,Webb,1900,13429,1910_T2,27.0,visual transcription of the page image (row crop at 300 dpi) during validation
+Laredo,Webb,1890,11319,1910_T2,27.0,visual transcription of the page image (row crop at 300 dpi) during validation
+Denison,Grayson,1910,13632,1910_T2,27.0,visual transcription of the page image (row crop at 300 dpi) during validation
+Denison,Grayson,1900,11807,1910_T2,27.0,visual transcription of the page image (row crop at 300 dpi) during validation
+Sherman,Grayson,1910,12412,1910_T2,28.0,visual transcription of the page image (row crop at 300 dpi) during validation
+Sherman,Grayson,1900,10243,1910_T2,28.0,visual transcription of the page image (row crop at 300 dpi) during validation
+Sherman,Grayson,1890,7335,1910_T2,28.0,visual transcription of the page image (row crop at 300 dpi) during validation
+Marshall,Harrison,1910,11452,1910_T2,28.0,visual transcription of the page image (row crop at 300 dpi) during validation
+Marshall,Harrison,1900,7855,1910_T2,28.0,visual transcription of the page image (row crop at 300 dpi) during validation
+Marshall,Harrison,1890,7207,1910_T2,28.0,visual transcription of the page image (row crop at 300 dpi) during validation
+Paris,Lamar,1910,11269,1910_T2,28.0,visual transcription of the page image (row crop at 300 dpi) during validation
+Paris,Lamar,1900,9358,1910_T2,28.0,visual transcription of the page image (row crop at 300 dpi) during validation
+Paris,Lamar,1890,8254,1910_T2,28.0,visual transcription of the page image (row crop at 300 dpi) during validation
+Palestine,Anderson,1910,10482,1910_T2,28.0,visual transcription of the page image (row crop at 300 dpi) during validation
+Palestine,Anderson,1900,8297,1910_T2,28.0,visual transcription of the page image (row crop at 300 dpi) during validation
+Palestine,Anderson,1890,5838,1910_T2,28.0,visual transcription of the page image (row crop at 300 dpi) during validation
+Tyler,Smith,1910,10400,1910_T2,28.0,visual transcription of the page image (row crop at 300 dpi) during validation
+Tyler,Smith,1900,8069,1910_T2,28.0,visual transcription of the page image (row crop at 300 dpi) during validation
+Tyler,Smith,1890,6908,1910_T2,28.0,visual transcription of the page image (row crop at 300 dpi) during validation
+Brownsville,Cameron,1910,10517,1910_T2,27.0,visual transcription of the page image (row crop at 300 dpi) during validation
+Brownsville,Cameron,1900,6305,1910_T2,27.0,visual transcription of the page image (row crop at 300 dpi) during validation
+Cleburne,Johnson,1910,10364,1910_T2,27.0,visual transcription of the page image (row crop at 300 dpi) during validation
+Cleburne,Johnson,1900,7493,1910_T2,27.0,visual transcription of the page image (row crop at 300 dpi) during validation
+Corsicana,Navarro,1910,9749,1910_T2,27.0,visual transcription of the page image (row crop at 300 dpi) during validation
+Corsicana,Navarro,1900,9313,1910_T2,27.0,visual transcription of the page image (row crop at 300 dpi) during validation
+Orange,Orange,1910,5527,1910_T2,28.0,visual transcription of the page image (row crop at 300 dpi) during validation
+Orange,Orange,1900,3835,1910_T2,28.0,visual transcription of the page image (row crop at 300 dpi) during validation
+Orange,Orange,1890,3173,1910_T2,28.0,visual transcription of the page image (row crop at 300 dpi) during validation
+Greenville,Hunt,1910,8850,1910_T2,27.0,visual transcription of the page image (row crop at 300 dpi) during validation
+Greenville,Hunt,1900,6860,1910_T2,27.0,visual transcription of the page image (row crop at 300 dpi) during validation
+Greenville,Hunt,1890,4330,1910_T2,27.0,visual transcription of the page image (row crop at 300 dpi) during validation
+Gainesville,Cooke,1910,7624,1910_T2,27.0,visual transcription of the page image (row crop at 300 dpi) during validation
+Gainesville,Cooke,1900,7874,1910_T2,27.0,visual transcription of the page image (row crop at 300 dpi) during validation
+Gainesville,Cooke,1890,6594,1910_T2,27.0,visual transcription of the page image (row crop at 300 dpi) during validation
+Abilene,Taylor,1910,9204,1910_T2,27.0,visual transcription of the page image (row crop at 300 dpi) during validation
+Abilene,Taylor,1900,3411,1910_T2,27.0,visual transcription of the page image (row crop at 300 dpi) during validation
+Amarillo,Potter,1910,9957,1910_T2,27.0,visual transcription of the page image (row crop at 300 dpi) during validation
+Amarillo,Potter,1900,1442,1910_T2,27.0,visual transcription of the page image (row crop at 300 dpi) during validation
+Brenham,Washington,1910,4718,1910_T2,27.0,visual transcription of the page image (row crop at 300 dpi) during validation
+Brenham,Washington,1900,5968,1910_T2,27.0,visual transcription of the page image (row crop at 300 dpi) during validation
+Bryan,Brazos,1910,4132,1910_T2,27.0,visual transcription of the page image (row crop at 300 dpi) during validation
+Bryan,Brazos,1900,3589,1910_T2,27.0,visual transcription of the page image (row crop at 300 dpi) during validation
+Ennis,Ellis,1910,5669,1910_T2,27.0,visual transcription of the page image (row crop at 300 dpi) during validation
+Ennis,Ellis,1900,4919,1910_T2,27.0,visual transcription of the page image (row crop at 300 dpi) during validation
+Ennis,Ellis,1890,2171,1910_T2,27.0,visual transcription of the page image (row crop at 300 dpi) during validation
+Terrell,Kaufman,1910,7050,1910_T2,28.0,visual transcription of the page image (row crop at 300 dpi) during validation
+Terrell,Kaufman,1900,6330,1910_T2,28.0,visual transcription of the page image (row crop at 300 dpi) during validation
+Terrell,Kaufman,1890,2988,1910_T2,28.0,visual transcription of the page image (row crop at 300 dpi) during validation
+Texarkana,Bowie,1910,9790,1910_T2,,visual transcription of the page image (row crop at 300 dpi) during validation
+Texarkana,Bowie,1900,5256,1910_T2,,visual transcription of the page image (row crop at 300 dpi) during validation
+Texarkana,Bowie,1890,2852,1910_T2,,visual transcription of the page image (row crop at 300 dpi) during validation
+Waxahachie,Ellis,1910,6205,1910_T2,28.0,visual transcription of the page image (row crop at 300 dpi) during validation
+Waxahachie,Ellis,1900,4215,1910_T2,28.0,visual transcription of the page image (row crop at 300 dpi) during validation
+Waxahachie,Ellis,1890,3076,1910_T2,28.0,visual transcription of the page image (row crop at 300 dpi) during validation
+Weatherford,Parker,1910,5074,1910_T2,28.0,visual transcription of the page image (row crop at 300 dpi) during validation
+Weatherford,Parker,1900,4786,1910_T2,28.0,visual transcription of the page image (row crop at 300 dpi) during validation
+Weatherford,Parker,1890,3369,1910_T2,28.0,visual transcription of the page image (row crop at 300 dpi) during validation
+Cisco,Eastland,1910,2410,1910_T2,27.0,visual transcription of the page image (row crop at 300 dpi) during validation
+Cisco,Eastland,1900,1514,1910_T2,27.0,visual transcription of the page image (row crop at 300 dpi) during validation
+Marlin,Falls,1910,3878,1910_T2,28.0,visual transcription of the page image (row crop at 300 dpi) during validation
+Marlin,Falls,1900,3092,1910_T2,28.0,visual transcription of the page image (row crop at 300 dpi) during validation
+Marlin,Falls,1890,2058,1910_T2,28.0,visual transcription of the page image (row crop at 300 dpi) during validation
+Hillsboro,Hill,1910,6115,1910_T2,27.0,visual transcription of the page image (row crop at 300 dpi) during validation
+Hillsboro,Hill,1900,5346,1910_T2,27.0,visual transcription of the page image (row crop at 300 dpi) during validation
+Hillsboro,Hill,1890,2541,1910_T2,27.0,visual transcription of the page image (row crop at 300 dpi) during validation
+Navasota,Grimes,1910,3284,1910_T2,28.0,visual transcription of the page image (row crop at 300 dpi) during validation
+Navasota,Grimes,1900,3857,1910_T2,28.0,visual transcription of the page image (row crop at 300 dpi) during validation
+Navasota,Grimes,1890,2997,1910_T2,28.0,visual transcription of the page image (row crop at 300 dpi) during validation
+Corpus Christi,Nueces,1910,8222,1910_T2,27.0,visual transcription of the page image (row crop at 300 dpi) during validation
+Corpus Christi,Nueces,1900,4703,1910_T2,27.0,visual transcription of the page image (row crop at 300 dpi) during validation
+El Paso,El Paso,1910,39279,1910_T2,27.0,visual transcription of the page image (row crop at 300 dpi) during validation
+El Paso,El Paso,1900,15906,1910_T2,27.0,visual transcription of the page image (row crop at 300 dpi) during validation
+El Paso,El Paso,1890,10338,1910_T2,27.0,visual transcription of the page image (row crop at 300 dpi) during validation
+Houston,Harris,1910,78800,1910_T2,27.0,visual transcription of the page image (row crop at 300 dpi) during validation
+Houston,Harris,1900,44633,1910_T2,27.0,visual transcription of the page image (row crop at 300 dpi) during validation
+Houston,Harris,1890,27557,1910_T2,27.0,visual transcription of the page image (row crop at 300 dpi) during validation
+Temple,Bell,1910,10993,1910_T2,28.0,visual transcription of the page image (row crop at 300 dpi) during validation
+Temple,Bell,1900,7065,1910_T2,28.0,visual transcription of the page image (row crop at 300 dpi) during validation
+Temple,Bell,1890,4047,1910_T2,28.0,visual transcription of the page image (row crop at 300 dpi) during validation
+Wichita Falls,Wichita,1910,8200,1910_T2,28.0,visual transcription of the page image (row crop at 300 dpi) during validation
+Wichita Falls,Wichita,1900,2480,1910_T2,28.0,visual transcription of the page image (row crop at 300 dpi) during validation
+Wichita Falls,Wichita,1890,1987,1910_T2,28.0,visual transcription of the page image (row crop at 300 dpi) during validation
+Brownwood,Brown,1910,6967,1910_T2,27.0,visual transcription of the page image (row crop at 300 dpi) during validation
+Brownwood,Brown,1900,3965,1910_T2,27.0,visual transcription of the page image (row crop at 300 dpi) during validation

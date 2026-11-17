@@ -1,0 +1,150 @@
+{
+  "snap_tolerance_m": 150.0,
+  "crs": "EPSG:3083",
+  "snapshots": {
+    "1852": {
+      "nodes": 0,
+      "edges": 0,
+      "components": 0,
+      "largest_component_nodes": 0,
+      "largest_component_share": 0,
+      "junction_nodes_deg3plus": 0,
+      "dead_ends_deg1": 0,
+      "track_km": 0
+    },
+    "1854": {
+      "nodes": 16,
+      "edges": 15,
+      "components": 1,
+      "largest_component_nodes": 16,
+      "largest_component_share": 1.0,
+      "junction_nodes_deg3plus": 0,
+      "dead_ends_deg1": 2,
+      "track_km": 34.5
+    },
+    "1858": {
+      "nodes": 101,
+      "edges": 100,
+      "components": 1,
+      "largest_component_nodes": 101,
+      "largest_component_share": 1.0,
+      "junction_nodes_deg3plus": 1,
+      "dead_ends_deg1": 3,
+      "track_km": 228.7
+    },
+    "1861": {
+      "nodes": 239,
+      "edges": 238,
+      "components": 4,
+      "largest_component_nodes": 207,
+      "largest_component_share": 0.866,
+      "junction_nodes_deg3plus": 7,
+      "dead_ends_deg1": 12,
+      "track_km": 674.1
+    },
+    "1863": {
+      "nodes": 259,
+      "edges": 258,
+      "components": 4,
+      "largest_component_nodes": 224,
+      "largest_component_share": 0.865,
+      "junction_nodes_deg3plus": 12,
+      "dead_ends_deg1": 17,
+      "track_km": 769.9
+    },
+    "1868": {
+      "nodes": 266,
+      "edges": 267,
+      "components": 5,
+      "largest_component_nodes": 228,
+      "largest_component_share": 0.857,
+      "junction_nodes_deg3plus": 15,
+      "dead_ends_deg1": 17,
+      "track_km": 773.6
+    },
+    "1872": {
+      "nodes": 1085,
+      "edges": 1109,
+      "components": 12,
+      "largest_component_nodes": 905,
+      "largest_component_share": 0.834,
+      "junction_nodes_deg3plus": 101,
+      "dead_ends_deg1": 69,
+      "track_km": 4226.5
+    },
+    "1877": {
+      "nodes": 1121,
+      "edges": 1145,
+      "components": 12,
+      "largest_component_nodes": 1013,
+      "largest_component_share": 0.904,
+      "junction_nodes_deg3plus": 102,
+      "dead_ends_deg1": 70,
+      "track_km": 4484.3
+    },
+    "1881": {
+      "nodes": 1867,
+      "edges": 1908,
+      "components": 22,
+      "largest_component_nodes": 1486,
+      "largest_component_share": 0.796,
+      "junction_nodes_deg3plus": 164,
+      "dead_ends_deg1": 116,
+      "track_km": 8303.5
+    },
+    "1889": {
+      "nodes": 3634,
+      "edges": 3776,
+      "components": 32,
+      "largest_component_nodes": 3339,
+      "largest_component_share": 0.919,
+      "junction_nodes_deg3plus": 364,
+      "dead_ends_deg1": 190,
+      "track_km": 18114.3
+    },
+    "1893": {
+      "nodes": 4039,
+      "edges": 4208,
+      "components": 36,
+      "largest_component_nodes": 3731,
+      "largest_component_share": 0.924,
+      "junction_nodes_deg3plus": 417,
+      "dead_ends_deg1": 215,
+      "track_km": 20496.9
+    },
+    "1898": {
+      "nodes": 4397,
+      "edges": 4578,
+      "components": 46,
+      "largest_component_nodes": 4062,
+      "largest_component_share": 0.924,
+      "junction_nodes_deg3plus": 460,
+      "dead_ends_deg1": 253,
+      "track_km": 22406.8
+    },
+    "1903": {
+      "nodes": 5155,
+      "edges": 5375,
+      "components": 64,
+      "largest_component_nodes": 4741,
+      "largest_component_share": 0.92,
+      "junction_nodes_deg3plus": 561,
+      "dead_ends_deg1": 316,
+      "track_km": 28736.8
+    },
+    "1911": {
+      "nodes": 6562,
+      "edges": 6853,
+      "components": 109,
+      "largest_component_nodes": 6220,
+      "largest_component_share": 0.948,
+      "junction_nodes_deg3plus": 752,
+      "dead_ends_deg1": 440,
+      "track_km": 41581.0
+    }
+  },
+  "audit": {
+    "proper_crossings_without_shared_endpoint": 100
+  },
+  "note": "Statistics cover all segments in the study bounding box (Texas plus adjacent areas)."
+}

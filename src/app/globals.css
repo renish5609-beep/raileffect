@@ -1,26 +1,61 @@
 @import "tailwindcss";
 
+@theme {
+  --color-ink: #1b1916;
+  --color-coal: #24211d;
+  --color-coal-2: #2e2a25;
+  --color-cream: #f5f0e6;
+  --color-paper: #fbf8f2;
+  --color-sand: #e7dfcf;
+  --color-rule: #d6ccb8;
+  --color-muted: #6b6257;
+  --color-copper: #a85a32;
+  --color-copper-2: #c9784b;
+  --color-rail: #8f2b21;
+  --color-sage: #5b7262;
+  --color-slate: #4a5866;
+  --font-serif: "Source Serif 4 Variable", "Iowan Old Style", Georgia, serif;
+  --font-sans: "Inter Variable", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  color-scheme: light;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html, body {
+  background: var(--color-paper);
+  color: var(--color-ink);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
 }
+
+h1, h2, h3, .serif {
+  font-family: var(--font-serif);
+  letter-spacing: -0.01em;
+}
+
+.num, code, .mono {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+a { text-underline-offset: 3px; }
+
+.prose-re p { margin: 0 0 1rem; line-height: 1.7; }
+.prose-re h2 { font-size: 1.6rem; margin: 2.5rem 0 1rem; }
+.prose-re h3 { font-size: 1.2rem; margin: 1.75rem 0 .6rem; }
+.prose-re ul { list-style: disc; padding-left: 1.25rem; margin: 0 0 1rem; }
+.prose-re ol { list-style: decimal; padding-left: 1.25rem; margin: 0 0 1rem; }
+.prose-re li { margin: .3rem 0; line-height: 1.6; }
+.prose-re a { color: var(--color-copper); text-decoration: underline; }
+.prose-re code { font-size: .85em; background: var(--color-sand); padding: 0 .3em; border-radius: 3px; }
+.prose-re table { width: 100%; border-collapse: collapse; font-size: .9rem; margin: 1rem 0 1.5rem; }
+.prose-re th, .prose-re td { border-bottom: 1px solid var(--color-rule); padding: .4rem .5rem; text-align: left; vertical-align: top; }
+
+.maplibregl-popup-content { font-family: var(--font-sans); border-radius: 6px !important; padding: 10px 12px !important; }
+
+:focus-visible { outline: 2px solid var(--color-copper); outline-offset: 2px; }

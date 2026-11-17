@@ -1,0 +1,16 @@
+{
+ "candidate_identities": 1535,
+ "towns_included": 974,
+ "excluded": 561,
+ "exclusion_reasons": {
+  "no gazetteer match in county": 342,
+  "no observation of quality A or B": 124,
+  "county could not be read": 95
+ },
+ "merged_duplicate_identities": 0,
+ "coord_sources": {
+  "usgs_gnis": 965,
+  "census2020_place": 9
+ },
+ "persisted_2020": 923
+}
