@@ -4,14 +4,15 @@
 
 **Did railroads influence which Texas towns survived, grew, declined or disappeared?**
 
-RailEffect is an open-source computational-history platform. It links Jeremy Atack's historical railroad GIS (1826–1911) to Texas town populations that this project digitised from scanned U.S. Census volumes (1910–1970), verified by agreement across independently printed volumes, and joined to official 2010/2020 counts. It then tests — rather than assumes — whether early rail access predicts later growth.
+RailEffect is an open-source computational-history platform. It links Jeremy Atack's historical railroad GIS (1826–1911) to Texas town populations that this project digitised from scanned U.S. Census volumes (1910–1970), verified by agreement across independently printed volumes, and joined to official 2010/2020 counts. It then tests whether early rail access predicts later growth, with the analysis set up so that a null result can be reported.
 
-* **974 towns** located and analysed · **5147 Atack track segments** in Texas across 11 benchmark maps (1861–1911) plus the 2020 network
-* **5162 population values** of grade A or B · main regression sample **n = 455**
+* 974 towns located and analysed
+* 5,147 Atack track segments in Texas across 11 benchmark maps (1861–1911), plus the 2020 network
+* 5,162 population values of grade A or B; main regression sample n = 455
 * Three model families (descriptive, multivariate regression, panel/matching) and 12 robustness checks
 * Research report: [`report/raileffect_report.md`](report/raileffect_report.md)
 
-> **Current finding.** Rail-served towns grew faster from 1940 to 2020 in raw comparisons, but conditional on 1940 size and location the difference is not distinguishable from zero. Proximity to 1910 hub cities and to the later Interstate network is more strongly associated with growth. These are associations in a sample of already-incorporated towns, not causal estimates. See the report and `/lab` on the site.
+> Current finding: rail-served towns grew faster from 1940 to 2020 in raw comparisons, but conditional on 1940 size and location the difference is not distinguishable from zero. Proximity to 1910 hub cities and to the later Interstate network is more strongly associated with growth. These are associations in a sample of already-incorporated towns, not causal estimates. See the report and `/lab` on the site.
 
 ## Site
 

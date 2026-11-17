@@ -37,15 +37,15 @@ export default function Page() {
             <li>It has at least one population value of grade A or B.</li>
             <li>Its OCR name, snapped to a gazetteer spelling within the same county, matches exactly a USGS GNIS populated place (preferred, because GNIS points mark historic town centres) or a 2020 Census place.</li>
           </ol>
-          <p>From {fmt(s.candidate_census_identities)} OCR place identities, {fmt(s.towns_analyzed)} towns qualify. Every exclusion is listed with its reason in <Link href="/data">raileffect_town_exclusions.csv</Link>. This frame is systematic — it is every incorporated place in the tables, not a list of famous railroad towns — but it is not free of selection: settlements that never incorporated are absent.</p>
+          <p>From {fmt(s.candidate_census_identities)} OCR place identities, {fmt(s.towns_analyzed)} towns qualify. Every exclusion is listed with its reason in <Link href="/data">raileffect_town_exclusions.csv</Link>. The frame takes every incorporated place in the tables, so famous railroad towns get no special treatment. It still selects: settlements that never incorporated are absent.</p>
 
           <h2 id="population">Population data and verification</h2>
           <p>The census volumes are scanned images. Each table page is rendered at 500 dpi, deskewed, and its ruled columns are found by morphological line detection (1970 uses a merged name/county column). Each numeric column is read five times (Tesseract default model at 500 and 300 dpi, a binarised variant, the <code>tessdata_best</code> LSTM model, and the legacy engine) after removing leader dots. Values are assigned to rows by tracking each column’s vertical drift relative to the name column, which corrects page curvature.</p>
           <p>Grades are rule-based:</p>
           <ul>
-            <li><strong>A — verified.</strong> The same count is read from two independently printed volumes (e.g. 1940 appears in the 1940, 1950 and 1960 volumes), or it was visually checked against the page image ({fmt(s.visual_verified)} values for larger 1890–1910 towns, listed in <code>data/metadata/visual_verification.csv</code>), or it is an official 2010/2020 count.</li>
-            <li><strong>B — single printing, consensus.</strong> Only one volume prints the value and at least 4 of 5 readings agree.</li>
-            <li><strong>C — uncertain.</strong> Weaker agreement, disagreeing printings, implausible jumps or inconsistency with adjacent censuses.</li>
+            <li>Grade A, verified: the same count is read from two independently printed volumes (e.g. 1940 appears in the 1940, 1950 and 1960 volumes), or it was visually checked against the page image ({fmt(s.visual_verified)} values for larger 1890–1910 towns, listed in <code>data/metadata/visual_verification.csv</code>), or it is an official 2010/2020 count.</li>
+            <li>Grade B, single printing with consensus: only one volume prints the value and at least 4 of 5 readings agree.</li>
+            <li>Grade C, uncertain: weaker agreement, disagreeing printings, implausible jumps or inconsistency with adjacent censuses.</li>
           </ul>
           <p>All statistical models use A-grade values only. B values appear on town pages and in a robustness check. Nothing is interpolated: a missing census year is shown as missing.</p>
 

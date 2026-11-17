@@ -15,8 +15,8 @@ Every downloaded input is recorded in `data/metadata/acquisition_log.json` with 
 Sources examined but not used (UNL Railroads and the Making of Modern America GIS, IPUMS NHGIS, Texas Almanac, Handbook of Texas, Portal to Texas History, Wikipedia) are listed with reasons on the Methodology page and in `public/data/sources.json`.
 
 ## Population grades
-* **A** — same count read from two independent printings; or visually verified against the page image (`data/metadata/visual_verification.csv`); or official digital count.
-* **B** — single printing, ≥4 of 5 OCR readings agree.
-* **C** — otherwise. Retained for transparency; excluded from models.
+* Grade A: the same count read from two independent printings; or visually verified against the page image (`data/metadata/visual_verification.csv`); or official digital count.
+* Grade B: single printing, ≥4 of 5 OCR readings agree.
+* Grade C: everything else. Retained for transparency; excluded from models.
 
 Validation sample (seed 7): `data/metadata/validation_sample_results.csv`, summary in `validation_summary.json`.

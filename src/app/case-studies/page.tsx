@@ -53,8 +53,8 @@ export default function Page() {
   const sources = getSources();
   return (
     <>
-      <PageHeader eyebrow="Historical Case Studies" title="Paired towns, chosen by rule rather than by story">
-        Each pair below was selected automatically by a rule written before looking at outcomes (except the Denison–Sherman pair, chosen as a same-county example from the project brief). None of these comparisons is a natural experiment.
+      <PageHeader eyebrow="Historical Case Studies" title="Paired towns, picked by rule">
+        Each pair below was selected automatically by a rule written before looking at outcomes (except Denison and Sherman, a same-county pair named in the project brief). None of these comparisons is a natural experiment.
       </PageHeader>
       <Container className="py-12 space-y-20">
         {cases.map((c: any, i: number) => {
@@ -82,7 +82,7 @@ export default function Page() {
                     <ul className="mt-2 space-y-1">
                       {[ta, tb].flatMap((t) => t.pops.filter((p) => p.quality === "A").flatMap((p) => (p.readings || []).map((r, k) => {
                         const cc = citation(sources, r.table, r.page);
-                        return cc ? <li key={`${t.id}-${p.year}-${k}`}><QualityBadge q="A" /> {t.name} {p.year}: <span className="num">{fmt(p.pop)}</span> — <Ext href={cc.url}>{cc.title.split(":")[0]}, PDF p. {r.page}</Ext></li> : null;
+                        return cc ? <li key={`${t.id}-${p.year}-${k}`}><QualityBadge q="A" /> {t.name} {p.year}: <span className="num">{fmt(p.pop)}</span>, <Ext href={cc.url}>{cc.title.split(":")[0]}, PDF p. {r.page}</Ext></li> : null;
                       })))}
                       <li>Railroad geometry and dates: {sources.railroads.atack.citation}</li>
                       {sources.archival_maps.filter((m: any) => m.holder.startsWith("Library")).slice(0, 3).map((m: any) => <li key={m.url}><Ext href={m.url}>{m.title} ({m.date})</Ext></li>)}
